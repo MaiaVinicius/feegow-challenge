@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Buscar Profisisonal{% endblock %}
+
+{% block body %}
+
+    <form>
+        <div class="form-group">
+            <label for="especialidade">Especialidade:</label>
+            <select name="especialidade" id="especialidade" class="form-control">
+                <option value="">Selecione</option>
+                {% for especialidade in especialidades %}
+                <option value="{{ especialidade.especialidade_id }}">
+                    {{ especialidade.nome }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        document.querySelector('#especialidade').addEventListener('change', e => {
+            fetch('/api/professional/list')
+                .then(res => res.json())
+                .then(profissionais => profissionais.filter(profissional => profissional.nome !== null))
+                .then(profisisonais => console.log(profisisonais))
+                .catch(err => console.log(err));
+        });
+    </script>
+{% endblock %}
