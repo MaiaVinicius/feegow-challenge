@@ -9,6 +9,6 @@ Irei assumir que você já possui o PHP e MySQL instalados no PC. Caso não tenh
 
 1- Para que o projeto funcione, o banco de dados precisa ser importado. Eu importei o banco através do PHPMyAdmin, mas caso você queira rodar os comandos manualmente, é só abrir o arquivo e rodar o comando de create database e table;``Arquivo database.sql``
 
-2- Segundo e último passo, ir no arquivo Consultas que se encontra na pasta backend e verificar se a conexão ao MySQL está de acordo com o seu servidor local. (Linha 3306)
+2- Segundo e último passo, ir no arquivo Consultas que se encontra na pasta backend e verificar se a conexão ao MySQL está de acordo com o seu servidor local. (Linha 8)
 
 Qualquer dúvida técnica, envie uma mensagem para andsfran@gmail.com.
