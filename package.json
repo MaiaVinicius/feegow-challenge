@@ -1,0 +1,9 @@
+{
+  "name": "prova-feegow",
+  "version": "1.0.0",
+  "dependencies": {
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-uglify-es": "^1.0.4"
+  }
+}

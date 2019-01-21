@@ -32,6 +32,12 @@ A tela inicial exibe apenas uma select com as especialidades. Após selecioná-l
 
 Ao clicar em agendar com algum profissional, a tela de solicitação de agendamento será exibida, onde os dados enviados por este formulário são enviados para o banco de dados na tabela `formulario`
 
+## Build do front (GULP)
+
+Para poupar uma etapa do build, os arquivos minificados gerados pelo GULP foram versionados.
+
+Caso queira editar os arquivos JS (assets/js), execute `npm install` para baixar as dependências do front, e depois execute `gulp` para realizar o build.
+
 ## Feedback
 
 Em caso de dúvidas, erros, feedback ou tapinha nas costas, favor entrar em contato com carlosv775@gmail.com
