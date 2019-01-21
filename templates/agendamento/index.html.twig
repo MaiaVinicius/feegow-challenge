@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Solicitar Agendamento{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1>Solicitar Agendamento</h1>
+    </div>
+
+    <div class="alert" id="resultado" hidden></div>
+
+    <form action="#">
+        <div class="form-row">
+            <div class="form-group col-6">
+                <label for="nome">Nome completo:</label>
+                <input type="text" class="form-control" placeholder="Nome Completo" id="nome" required>
+            </div>
+            <div class="col-6">
+                <label for="origem">Como conheceu?</label>
+                <select name="origem" id="origem" class="form-control">
+
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="nascimento">Data de nascimento:</label>
+                <input type="date" class="form-control" placeholder="Nascimento" id="nascimento" required>
+            </div>
+            <div class="col-6">
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                   class="form-control" required placeholder="CPF" id="cpf" title="CPF no formato 999.999.999-99">
+            </div>
+        </div>
+
+        <input type="hidden" name="profissional" value="{{ idProfissional }}">
+        <input type="hidden" name="especialidade" value="{{ idEspecialidade }}">
+
+        <div class="text-center mt-3">
+            <button class="btn btn-primary">Solicitar Horários</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/solicitar-agendamento/scripts.js') }}"></script>
+{% endblock %}
