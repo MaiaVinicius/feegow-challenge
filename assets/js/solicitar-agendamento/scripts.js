@@ -12,3 +12,5 @@ form.addEventListener('submit', e => {
 
 const buscador = new BuscadorDeOrigens(document.getElementById('origem'));
 buscador.busca();
+
+VMasker(document.getElementById('cpf')).maskPattern('999.999.999-99');
