@@ -9,6 +9,7 @@ services:
     volumes:
       - .:/app
     working_dir: /app
+    container_name: feegow-challenge-app
   banco:
     image: mysql:5
     ports:

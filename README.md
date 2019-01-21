@@ -13,16 +13,13 @@ Após executar o comando, você terá 2 containers em execução. Um com o PHP (
 
 Para instalar as dependências do projeto em PHP, execute o comando `composer install`. Caso não tenha o `composer` na máquina, execute:
 
-`docker --rm -it -v $(pwd):/project -w /project composer install`
+`docker run --rm -it -v $(pwd):/project -w /project composer install`
 
-Após realizar este passo, para criar o banco, execute:
+Após realizar este passo, para criar a estrutura do banco de dados, execute:
 
 ```
-docker exec -it {id_container_php} php bin/console doctrine:database:create
-docker exec -it {id_container_php} php bin/console doctrine:migrations:migrate
+docker exec -it feegow-challenge-app php bin/console doctrine:migrations:migrate
 ```
-
-Para encontrar o valor de `{id_container_php}`, execute `docker ps` e inspecione a saída.
 
 ## Executar o projeto
 
