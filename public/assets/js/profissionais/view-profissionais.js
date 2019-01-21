@@ -9,7 +9,7 @@ export class ViewProfissionais {
                         {{ dadosConselho }}
                     </h5>
 
-                    <a href="#" class="btn btn-outline-success">Agendar</a>
+                    <a href="/agendamento/{{ especialidade }}/{{ id }}" class="btn btn-outline-success">Agendar</a>
                 </div>
             </div>`;
     }
@@ -29,6 +29,8 @@ export class ViewProfissionais {
     getHtml(profissional) {
         return this._template
             .replace('{{ nome }}', profissional.nome)
+            .replace('{{ id }}', profissional.profissional_id)
+            .replace('{{ especialidade }}', document.getElementById('especialidade').value)
             .replace('{{ dadosConselho }}', profissional.documento_conselho
                 ? `<small class="text-muted">${profissional.conselho}: ${profissional.documento_conselho}</small>`
                 : ''
