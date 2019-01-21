@@ -7,6 +7,8 @@
         <h1>Solicitar Agendamento</h1>
     </div>
 
+    <div class="text-center" id="carregando" hidden><progress></progress></div>
+
     <div class="alert" id="resultado" hidden></div>
 
     <form action="#">
@@ -42,5 +44,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('assets/js/solicitar-agendamento/scripts.js') }}"></script>
+    <script src="{{ asset('assets/js/solicitar-agendamento/scripts.js') }}" type="module"></script>
 {% endblock %}
