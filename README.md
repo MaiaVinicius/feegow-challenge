@@ -1,65 +1,37 @@
 # Feegow Challenge
 
-Esse é um teste focado em design de código, e conhecimento de orientação a objeto. O objetivo é avaliar sua experiênica em escrever código de fácil manutenção, baixo acoplamento, e alta coesão.
+## Apresentação do projeto
 
-## Apresentação do problema
+Este simples projeto tem como núcleo a API da Feegow, de onde busca os dados, e insere os dados do formulário em um banco de dados relacional (MySQL) que representam um pedido de agendamento.
 
-A clínica _Exemplo_ precisa exibir a listagem de seus médicos separados por especialidade em seu site para que seus pacientes tenham acesso. Essa clínica utiliza o Feegow que possui toda a api necessária para isso. 
-Link da documentação: https://clinic.feegow.com.br/components/public/api/documentation 
+## Como levantar os ambientes
 
-  1- A tela inicial deve ser um SELECT contendo a listagem de todas as especialidades que a clínica trabalha (método na documentação: ``GET /specialties/list``). 
-  
-  ![Exemplo do SELECT](https://image.prntscr.com/image/krKCLaZGT1O3rf4h4ETLow.png)
-  
-  
-  2- Quando o usuário escolhe uma especialidade, é executado um AJAX para buscar os profissionais que possuem aquela especialidade e exibido em tela (método na documentação: ``GET /professional/list``). 
+Tendo o `docker` e `docker-compose` instalados na máquina, basta executar o comando `docker-compose up -d`, que inicializa os containers (em segundo plano).
+Certifique-se de que as portas 8081 e 3306 na sua máquina não estejam sendo utilizadas.
 
-  ![Exemplo do SELECT](https://image.prntscr.com/image/v4cm7l99TOuvcyhHuIgaJw.png)
+Após executar o comando, você terá 2 containers em execução. Um com o PHP (rodando o servidor integrado php -S) e outro com MySQL.
 
-  3- Quando o usuário clica em "AGENDAR", será exibido um formulário que o usuário irá preencher e clicar em "ENVIAR".
-  
-  ![Exemplo do SELECT](https://image.prntscr.com/image/w34r0YIUQsmlJcq7DcaIQA.png)
-  
-  4- Quando o usuário enviar, deverá enviar o formulário por AJAX e salvar todas as informações em um banco de dados relacional contendo: **specialty_id, professional_id, name, cpf, source_id (GET /patient/list-sources), birthdate e date_time**.
-      
-  Obs: A listagem do campo "Como conheceu" deve vir da api (método ``GET /patient/list-sources`` )
-  
-  5- Após salvar as informações exibir uma informação ao usuário que os dados foram salvos.
+Para instalar as dependências do projeto em PHP, execute o comando `composer install`. Caso não tenha o `composer` na máquina, execute:
 
+`docker --rm -it -v $(pwd):/project -w /project composer install`
 
-## Tecnologias usadas
+Após realizar este passo, para criar o banco, execute:
 
-Os pré-requisitos para a aplicação:
+```
+docker exec -it {id_container_php} php bin/console doctrine:database:create
+docker exec -it {id_container_php} php bin/console doctrine:migrations:migrate
+```
 
-- Use o PHP como linguagem backend, de preferencia a partir da versão 7.
-- Usar Bootstrap ou qualquer framework front-end de sua preferência.
-- Banco deve ser relacional, de preferencia MySQL
-- Documentação sucinta e explicativa de como rodar seu código e levantar os ambientes.
+Para encontrar o valor de `{id_container_php}`, execute `docker ps` e inspecione a saída.
 
-## O que gostaríamos de ver (se der tempo)
+## Executar o projeto
 
-- Uso de um framework MVC PHP (Laravel, CodeIgniter, Symphony, etc)
-- Teste unitários.
-- Pre-processadores de front (Gulp, Grunt ou Webpack).
-- Aplicação rodando em Docker Containers.
-- CRUD completo e funcional, primeiramente da entidade Formulário, e Usuários como um plus.
+Após ter levantado os containers e criado a estrutura do banco, abra em seu navegador o endereço http://localhost:8081
 
-## Avaliação
+A tela inicial exibe apenas uma select com as especialidades. Após selecioná-las, a lista de profissionais da especialidade será carregada.
 
-Para nos enviar seu código, você poderá escolher as 3 opções abaixo:
+Ao clicar em agendar com algum profissional, a tela de solicitação de agendamento será exibida, onde os dados enviados por este formulário são enviados para o banco de dados na tabela `formulario`
 
-- Fazer um fork desse repositório e nos mandar uma pull-request
-- Dar acesso ao seu repositório privado no Github ou Bitbucket para educostachaves@gmail.com e  viniciusmaia.tx@gmail.com.
-- Enviar um git bundle do seu repositório para os e-mail educostachaves@gmail.com e viniciusmaia.tx@gmail.com.
+## Feedback
 
-Caso opte por fazer um Pull-Request, deixe ele explicativo apontando tudo que precisa ser feito para rodar sua aplicação. 
-
-## Dicas
-
-- Aproveite os recursos das ferramentas que você está usando. Diversifique e mostre que você domina cada uma delas.
-- Tente escrever seu codigo o mais claro e limpo possível. Código deve ser legível assim como qualquer texto dissertativo.
-- Se destaque mostrando algo interessante e surpreendente. Isso sempre fará diferença.
-
-Qualquer dúvida técnica, envie uma mensagem para viniciusmaia.tx@gmail.com.
-
-Você terá 3 dias para fazer esse teste, a partir do recebimento deste desafio. Sucesso!
+Em caso de dúvidas, erros, feedback ou tapinha nas costas, favor entrar em contato com carlosv775@gmail.com
