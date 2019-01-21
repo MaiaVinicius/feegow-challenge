@@ -18,37 +18,37 @@ class Formulario
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, name="name")
      */
     private $nome;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="source_id")
      */
     private $idOrigem;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", name="birthdate")
      */
     private $dataNascimento;
 
     /**
-     * @ORM\Column(type="string", length=14)
+     * @ORM\Column(type="string", length=14, name="cpf")
      */
     private $cpf;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="specialty_id")
      */
     private $idEspecialidade;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="professional_id")
      */
     private $idProfissional;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", name="date_time")
      */
     private $dataCriacao;
 
