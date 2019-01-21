@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Formulario;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,6 +23,19 @@ class AgendamentoController extends AbstractController
      */
     public function solicitarAgendamento(Request $request)
     {
-        return new Response();
+        $form = new Formulario();
+        $form
+            ->setNome($request->request->get('nome'))
+            ->setCpf($request->request->get('cpf'))
+            ->setDataNascimento(new \DateTime($request->request->get('nascimento')))
+            ->setIdOrigem($request->request->get('origem'))
+            ->setIdEspecialidade($request->request->get('especialidade'))
+            ->setIdProfissional($request->request->get('profissional'));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($form);
+        $em->flush();
+
+        return new Response('', 201);
     }
 }

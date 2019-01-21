@@ -4,13 +4,12 @@ form.addEventListener('submit', e => {
 
     const formData = new FormData(form);
     const alert = document.getElementById('resultado');
+    alert.classList.remove('alert-success', 'alert-danger');
+    alert.hidden = true;
 
     fetch('/agendamento', {
         method: 'POST',
-        body: formData,
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
+        body: formData
     }).then(response => {
         if (!response.ok) {
             throw new Error();
@@ -20,7 +19,7 @@ form.addEventListener('submit', e => {
         alert.classList.add('alert-success');
         alert.textContent = 'Agendamento solicitado com sucesso';
     }).catch(err => {
-        const mensagem = err instanceof Error
+        const mensagem = err instanceof Error && err.message
             ? err.message
             : 'Ocorreu um erro inesperado';
 
@@ -30,3 +29,13 @@ form.addEventListener('submit', e => {
         alert.removeAttribute('hidden');
     });
 });
+
+fetch('/api/patient/list-sources')
+    .then(res => res.json())
+    .then(sources => {
+        const select = document.getElementById('origem');
+        select.innerHTML = '<option value="">Selecione</option>';
+        sources
+            .sort((a, b) => a.nome_origem < b.nome_origem ? -1 : 1)
+            .forEach(source => select.innerHTML += `<option value="${source.origem_id}">${source.nome_origem}</option>`);
+    });
