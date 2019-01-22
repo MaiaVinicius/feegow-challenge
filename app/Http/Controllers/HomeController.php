@@ -6,15 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    private $feegowApiEndpoint = 'http://clinic5.feegow.com.br/components/public/api';
 
     /**
      * Show the application dashboard.
@@ -23,6 +15,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // dd(response($this->curlApiCall($this->feegowApiEndpoint, 'specialties/list')));
         return view('home');
+    }
+
+    public function specialtiesList()
+    {
+        return response()->json($this->curlApiCall($this->feegowApiEndpoint, 'specialties/list'));
     }
 }
