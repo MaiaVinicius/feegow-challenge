@@ -11,9 +11,18 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected function curlApiCall($endpoint, $urlMethodPath)
+    protected function curlApiCall($endpoint, $urlMethodPath, $params = null)
     {
-        $curl = curl_init("$endpoint/$urlMethodPath");
+        $url = "$endpoint/$urlMethodPath";
+        if (!empty($params)) {
+            $strParams = '';
+            foreach($params as $key => $value)
+                $strParams .= "$key=$value&";
+            $strParams = substr($strParams, 0, -1);
+            $url = "$url?$strParams";
+        }
+        // dump($url);
+        $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt(
             $curl,
@@ -26,6 +35,6 @@ class Controller extends BaseController
         $output = curl_exec($curl);
         curl_close($curl);
 
-        return json_encode($output, true);
+        return $output;
     }
 }
