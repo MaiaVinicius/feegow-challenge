@@ -1817,24 +1817,92 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       specialties: null,
       professionals: null,
-      chosenSpecialty: ''
+      sources: null,
+      chosenSpecialty: '',
+      fullname: null,
+      birthdate: null,
+      chosenSource: '',
+      chosenProfessional: null,
+      cpf: null,
+      loggedUser: null
     };
   },
   mounted: function mounted() {
     this.getSpecialties();
+    this.getSources();
+    var metas = document.getElementsByTagName("meta");
+
+    for (var i = 0; i < metas.length; i++) {
+      if (metas[i].name === 'user_id') {
+        this.loggedUser = metas[i].content;
+      }
+    }
   },
   methods: {
+    chooseProfessional: function chooseProfessional(id) {
+      this.chosenProfessional = id;
+    },
     getSpecialties: function getSpecialties() {
       var _this = this;
+
+      var specialties = localStorage.getItem('specialties');
+
+      if (specialties) {
+        this.specialties = JSON.parse(specialties).content;
+        return;
+      }
 
       window.axios.get('/api/specialties').then(function (_ref) {
         var data = _ref.data;
         _this.specialties = JSON.parse(data).content;
+        localStorage.setItem('specialties', data);
       });
     },
     getProfessionals: function getProfessionals() {
@@ -1849,7 +1917,45 @@ __webpack_require__.r(__webpack_exports__);
         _this2.professionals = data.content;
       });
     },
-    saveSchedule: function saveSchedule() {}
+    getSources: function getSources() {
+      var _this3 = this;
+
+      var sources = localStorage.getItem('sources');
+
+      if (sources) {
+        this.sources = JSON.parse(sources).content;
+        return;
+      }
+
+      window.axios.get('/api/sources').then(function (_ref3) {
+        var data = _ref3.data;
+        _this3.sources = JSON.parse(data).content;
+        localStorage.setItem('sources', data);
+      });
+    },
+    saveSchedule: function saveSchedule() {
+      var fullname = this.fullname;
+      var birthdate = this.birthdate;
+      var chosenSource = this.chosenSource;
+      var chosenProfessional = this.chosenProfessional;
+      var cpf = this.cpf;
+      window.axios.post('/api/schedule', {
+        name: fullname,
+        birthdate: birthdate,
+        source_id: chosenSource,
+        specialty_id: this.chosenSpecialty,
+        professional_id: chosenProfessional,
+        cpf: cpf,
+        user_id: this.loggedUser
+      }).then(function (_ref4) {
+        var data = _ref4.data;
+        console.log(data);
+      });
+      this.fullname = null;
+      this.birthdate = null;
+      this.chosenSource = '';
+      this.cpf = null;
+    }
   }
 });
 
@@ -36825,11 +36931,11 @@ var render = function() {
                             _vm._v(" "),
                             _c("p", { staticClass: "card-text" }, [
                               _vm._v(
-                                "\n                                            " +
+                                "\n                                                " +
                                   _vm._s(professional.conselho) +
                                   " " +
                                   _vm._s(professional.documento_conselho) +
-                                  "\n                                        "
+                                  "\n                                            "
                               )
                             ])
                           ])
@@ -36839,16 +36945,275 @@ var render = function() {
                           "button",
                           {
                             staticClass: "btn btn-success float-right",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target":
+                                "#schedule" + professional.profissional_id
+                            },
                             on: {
                               click: function($event) {
-                                _vm.saveSchedule()
+                                _vm.chooseProfessional(
+                                  professional.profissional_id
+                                )
                               }
                             }
                           },
                           [_vm._v("AGENDAR")]
                         )
                       ])
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "modal fade",
+                        attrs: {
+                          id: "schedule" + professional.profissional_id,
+                          tabindex: "-1",
+                          role: "dialog",
+                          "aria-labelledby":
+                            "schedule" + professional.profissional_id + "Label",
+                          "aria-hidden": "true"
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "modal-dialog",
+                            attrs: { role: "document" }
+                          },
+                          [
+                            _c("div", { staticClass: "modal-content" }, [
+                              _c("div", { staticClass: "modal-header" }, [
+                                _c(
+                                  "h5",
+                                  {
+                                    staticClass: "modal-title",
+                                    attrs: {
+                                      id:
+                                        "schedule" +
+                                        professional.profissional_id +
+                                        "Label"
+                                    }
+                                  },
+                                  [_vm._v("Preencha seus dados")]
+                                ),
+                                _vm._v(" "),
+                                _vm._m(0, true)
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "modal-body" }, [
+                                _c(
+                                  "form",
+                                  {
+                                    on: {
+                                      submit: function($event) {
+                                        $event.preventDefault()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-sm-12 col-md-6" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.fullname,
+                                                  expression: "fullname"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                placeholder: "Nome Completo",
+                                                type: "text"
+                                              },
+                                              domProps: { value: _vm.fullname },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.fullname =
+                                                    $event.target.value
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-sm-12 col-md-6" },
+                                          [
+                                            _c(
+                                              "select",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.chosenSource,
+                                                    expression: "chosenSource"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                on: {
+                                                  change: function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.chosenSource = $event
+                                                      .target.multiple
+                                                      ? $$selectedVal
+                                                      : $$selectedVal[0]
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  { attrs: { value: "" } },
+                                                  [_vm._v("Como conheceu?")]
+                                                ),
+                                                _vm._v(" "),
+                                                _vm._l(_vm.sources, function(
+                                                  source
+                                                ) {
+                                                  return _c(
+                                                    "option",
+                                                    {
+                                                      key: source.origem_id,
+                                                      domProps: {
+                                                        value: source.origem_id
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          source.nome_origem
+                                                        )
+                                                      )
+                                                    ]
+                                                  )
+                                                })
+                                              ],
+                                              2
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-sm-12 col-md-6" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.birthdate,
+                                                  expression: "birthdate"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                placeholder: "Nascimento",
+                                                type: "text",
+                                                onfocus: "(this.type='date')",
+                                                onblur: "(this.type='text')"
+                                              },
+                                              domProps: {
+                                                value: _vm.birthdate
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.birthdate =
+                                                    $event.target.value
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-sm-12 col-md-6" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.cpf,
+                                                  expression: "cpf"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                placeholder: "CPF",
+                                                type: "text"
+                                              },
+                                              domProps: { value: _vm.cpf },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.cpf = $event.target.value
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "modal-footer" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-success",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.saveSchedule()
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("SOLICITAR HORÁRIOS")]
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ]
+                    )
                   ]
                 )
               }),
@@ -36860,7 +37225,25 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  }
+]
 render._withStripped = true
 
 

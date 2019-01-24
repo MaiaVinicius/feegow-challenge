@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\SchedulePostStoreRequest;
+use App\Schedule;
+use Carbon\Carbon;
 
 class ScheduleController extends Controller
 {
@@ -29,12 +33,16 @@ class ScheduleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  SchedulePostStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SchedulePostStoreRequest $request)
     {
-        //
+        $inputs = $request->all();
+        $inputs['date_time'] = Carbon::now();
+        $success = (bool)Schedule::create($inputs);
+        $message = $success ? 'Horário marcado com sucesso!' : 'Erro ao marcar horário...';
+        return response()->json(['backendMessage' => $message], $success ? 200 : 401);
     }
 
     /**

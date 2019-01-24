@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('specialties', 'HomeController@specialtiesList');
 Route::get('professionals', 'HomeController@professionalsList');
+Route::get('sources', 'HomeController@sourcesList');
 Route::resource('schedule', 'ScheduleController', ['only' => [
     'store',
     'update',

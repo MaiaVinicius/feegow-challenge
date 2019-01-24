@@ -18,7 +18,7 @@ class CreateSchedulesTable extends Migration
 
             $table->unsignedInteger('user_id');
 
-            $table->integer('specialty_id');
+            $table->integer('specialty_id')->nullable();
             $table->integer('professional_id');
             $table->integer('source_id');
 

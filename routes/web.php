@@ -19,10 +19,4 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
-
-    Route::resource('schedule', 'ScheduleController', ['except' => [
-        'store',
-        'update',
-        'destroy',
-    ]]);
 });

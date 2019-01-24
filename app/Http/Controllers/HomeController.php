@@ -53,4 +53,9 @@ class HomeController extends Controller
         // dd($list);
         return response()->json($list);
     }
+
+    public function sourcesList()
+    {
+        return response()->json($this->curlApiCall($this->feegowApiEndpoint, 'patient/list-sources'));
+    }
 }
