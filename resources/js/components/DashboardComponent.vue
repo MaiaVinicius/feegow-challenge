@@ -9,7 +9,7 @@
                                 <label class="col-3 col-form-label text-right">Consulta de</label>
                                 <div class="col">
                                     <select v-model="chosenSpecialty" class="form-control">
-                                        <option value="">Default select</option>
+                                        <option value="">Selecione a especialidade</option>
                                         <option
                                             v-for="specialty in specialties"
                                             :value="specialty.especialidade_id"
@@ -18,7 +18,7 @@
                                     </select>
                                 </div>
                                 <div class="col-3">
-                                    <button type="submit" @click="getProfessionals()" class="btn btn-success">AGENDAR</button>
+                                    <button type="submit" @click="getProfessionals()" class="btn btn-success" :disabled="professionalSearchControl">AGENDAR</button>
                                 </div>
                             </div>
                         </form>
@@ -107,7 +107,8 @@
                 chosenSource: '',
                 chosenProfessional: null,
                 cpf: null,
-                loggedUser: null
+                loggedUser: null,
+                professionalSearchControl: false
             }
         },
         mounted() {
@@ -136,12 +137,14 @@
                 });
             },
             getProfessionals() {
+                this.professionalSearchControl = true;
                 window.axios.get('/api/professionals', {
                     params: {
                         especialidade_id: this.chosenSpecialty
                     }
                 }).then(({ data }) => {
                     this.professionals = data.content;
+                    this.professionalSearchControl = false;
                 });
             },
             getSources() {
@@ -172,12 +175,24 @@
                     user_id: this.loggedUser
                 }).then(({ data }) => {
                     console.log(data);
-                });
+                    swal("Sucesso!", data.backendMessage, "success");
 
-                this.fullname = null;
-                this.birthdate = null;
-                this.chosenSource = '';
-                this.cpf = null;
+                    this.fullname = null;
+                    this.birthdate = null;
+                    this.chosenSource = '';
+                    this.cpf = null;
+                }).catch(function (error) {
+                    console.log(error.response.data);
+                    if (error.response.data.backendMessage) {
+                        swal("Falha!", error.response.data.backendMessage, "error");
+                    } else {
+                        let swalMessage = "";
+                        $.each(error.response.data.errors, function(key, value) {
+                            swalMessage += value + " ";
+                        });
+                        swal("Atente-se aos seguintes erros de preenchimento", swalMessage, "warning");
+                    }
+                });
             }
         }
     }

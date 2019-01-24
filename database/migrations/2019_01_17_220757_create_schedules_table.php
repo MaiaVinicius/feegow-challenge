@@ -23,7 +23,7 @@ class CreateSchedulesTable extends Migration
             $table->integer('source_id');
 
             $table->string('name');
-            $table->char('cpf', 11)->unique();
+            $table->char('cpf', 11);
             $table->date('birthdate');
             $table->dateTime('date_time')->nullable();
 

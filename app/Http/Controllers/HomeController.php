@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Schedule;
 
 class HomeController extends Controller
 {
@@ -17,6 +18,12 @@ class HomeController extends Controller
     {
         // dd(response($this->curlApiCall($this->feegowApiEndpoint, 'specialties/list')));
         return view('home');
+    }
+
+    public function welcome()
+    {
+        // dd(Schedule::all()->toArray());
+        return view('welcome', ['schedules' => Schedule::all()->toArray()]);
     }
 
     public function specialtiesList()
