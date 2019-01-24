@@ -55,3 +55,17 @@ Caso opte por fazer um Pull-Request, deixe ele explicativo apontando tudo que pr
 Qualquer dúvida técnica, envie uma mensagem para viniciusmaia.tx@gmail.com.
 
 Você terá 3 dias para fazer esse teste, a partir do recebimento deste desafio. Sucesso!
+
+# Instalando a solução
+
+A solução que criei trata-se de um projeto Laravel como outro qualquer, após cloná-lo basta copiar o arquivo .env.example num arquivo .env na mesma pasta, configurar os campos referentes ao banco de dados que estiver disponível e colar o token de acesso à API.
+
+Agora basta executar os seguintes comandos em ordem na pasta do projeto:
+```bash
+php artisan key:generate
+composer install
+php artisan migrate
+npm install
+```
+
+O ambiente de desenvolvimento utilizado foi a Homestead, uma máquina virtual que pode ser baixada como um Vagrant Box. Para instalá-la, basta seguir o tutorial na própria documentação do Laravel: https://laravel.com/docs/5.7/homestead
