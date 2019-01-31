@@ -1,0 +1,38 @@
+version: "2"
+
+services:
+  nginx:
+    image: ttdev.fidelize.com.br:5000/nginx
+    container_name: nginx-fg
+    restart: always
+    volumes:
+      - ./config/docker/nginx_conf:/etc/nginx/conf.d
+      - ./:/var/www/html/ms-bit
+      -  /usr/bin/ssh:/usr/bin/ssh
+    volumes_from:
+     - php:rw
+    links:
+       - php:php
+    networks:
+      docker_micro_servicos:
+        ipv4_address: 10.11.0.161
+
+  php:
+    image: 192.168.0.215:5000/php:7.1
+    container_name: php-fg
+    restart: always
+    command: bash -c "sed -i '1,100 d' /usr/local/etc/php/conf.d/ext-xdebug.ini && echo "zend_extension=xdebug.so" >> /usr/local/etc/php/conf.d/ext-xdebug.ini && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/ext-xdebug.ini && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/ext-xdebug.ini && sed -i \"s/memory_limit = 128M/memory_limit = 6144M/\" /usr/local/etc/php/php.ini && sed -i \"s/short_open_tag = Off/short_open_tag = On/\" /usr/local/etc/php/php.ini && sed -i \"s/max_execution_time = 30/max_execution_time = 300/\" /usr/local/etc/php/php.ini && php-fpm"
+    environment:
+     - XDEBUG_CONFIG=remote_host=172.17.0.1
+     - PHP_IDE_CONFIG=serverName=Local
+    volumes:
+      - ./:/var/www/html/
+      -  /usr/bin/ssh:/usr/bin/ssh
+      - ./docker/logs/xdebug/:/tmp/xdebug_log #Logs for Xdebug
+    networks:
+      docker_micro_servicos:
+        ipv4_address: 10.11.0.162
+
+networks:
+  docker_micro_servicos:
+   external: true

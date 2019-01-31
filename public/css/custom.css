@@ -1,0 +1,79 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    margin: 0;
+    padding: 30px 100px;
+}
+
+.alert-danger{
+    padding: 10px;
+    margin: 5px 0;
+}
+.alert-danger ul li{
+    text-align: left !important;
+}
+
+.card{
+    margin: 1rem;
+    margin-top: 55px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card .card-name{
+    font-weight: bold;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+.card-title{
+    font-size: 0.9em;
+}
+
+.card .card-avatar{
+    position: relative;
+    margin-top: -30px;
+}
+
+.card .card-avatar img{
+    width: 60px;
+    height: 60px;
+    border: 1px solid #cccccc;
+}
+
+.form-row{
+    margin-bottom: 10px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input select{
+    border: 0;
+    box-shadow: none;
+}
