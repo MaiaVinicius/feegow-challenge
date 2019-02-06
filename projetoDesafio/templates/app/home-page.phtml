@@ -1,0 +1,33 @@
+<?php
+
+use App\ValueObject\Especialidade;
+
+$this->headTitle('Profissionais');
+
+echo $this->partial('app::scripts');
+echo $this->partial('app::style');
+?>
+<div class="row">
+    <div class="input-group">
+        <div class="align-middle">Consulta de:
+        <label for="especialidade">
+            <select required id="especialidade" class="form-control">
+                <option value="">Selecione uma especialidade</option>
+                <?php /** @var Especialidade[] $listEspecialidades */
+                foreach ($listEspecialidades as $especialidade): ?>
+                    <option value="<?= $especialidade->especialidade_id ?>"><?= $especialidade->nome ?></option>
+                <?php endforeach; ?>
+            </select>
+        </label>
+        </div>
+        &nbsp;
+        <div>
+            <button class="btn btn-outline-secondary" type="button" onclick="buscarProfissionais()"
+                    id="buscar-especialistas">
+                Pesquisar
+            </button>
+        </div>
+    </div>
+    <div class="input-group" id="profissionais"></div>
+    <div class="input-group" id="agenda"></div>
+</div>

@@ -1,0 +1,120 @@
+<?php
+$this->headLink()
+    ->prependStylesheet('https://use.fontawesome.com/releases/v5.0.6/css/all.css')
+    ->prependStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+$this->inlineScript()
+    ->prependFile('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+    ->prependFile('https://code.jquery.com/jquery-3.3.1.min.js');
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="shortcut icon" href="https://framework.zend.com/ico/favicon.ico"/>
+    <?= $this->headTitle('zend-expressive')->setSeparator(' - ')->setAutoEscape(false) ?>
+    <?= $this->headMeta() ?>
+    <?= $this->headLink() ?>
+    <style>
+        body {
+            padding-top: 70px;
+        }
+
+        .app {
+            min-height: 100vh;
+        }
+
+        .app-footer {
+            padding-bottom: 1em;
+        }
+
+        .zf-green, h2 a {
+            color: #68b604;
+        }
+    </style>
+</head>
+<body class="app">
+<header class="app-header">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
+                        aria-controls="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Brand -->
+                <a class="navbar-brand" href="<?= $this->url('home') ?>">
+                    <img src="https://framework.zend.com/images/logos/zf-logo-mark.png" alt="Zend Expressive"
+                         height="28"/>
+                </a>
+            </div>
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="<?= $this->url('api.ping') ?>" class="nav-link">
+                            Ping Test
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="app-content">
+    <main class="container">
+        <?= $this->content ?>
+    </main>
+</div>
+
+<footer class="app-footer">
+    <div class="container">
+        <hr/>
+    </div>
+</footer>
+
+<?= $this->inlineScript() ?>
+<script>
+    msgInformacaoModalPersonalizado = function(titulo, mensagem, conteudoBotao, onClick)
+    {
+        $('#modal-form-informacao .modal-header h4').html(titulo);
+        $('#modal-form-informacao .modalInformacaoMessage').html(mensagem);
+
+        $('#modal-form-informacao .modal-footer button').hide();
+        if(conteudoBotao) {
+            $('#modal-form-informacao .modal-footer button').html(conteudoBotao);
+            $('#modal-form-informacao .modal-footer button').show();
+        }
+        $('#modal-form-informacao .modal-footer button').attr('onclick',onClick);
+        $('#modal-form-informacao').modal();
+    }
+</script>
+
+<div id="modal-form-informacao" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-mobile">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body overflow-visible">
+                <div class="row margin-mobile-none">
+                    <div class="col-xs-12 col-sm-12 margin-mobile-none">
+                        <h4 class="blue modalInformacaoTitle"></h4>
+                        <span class="modalInformacaoMessage"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer modal-footer-mobile">
+                <button class="btn btn-sm btn-primary" data-dismiss="modal">
+                    <i class="fa fa-check"></i>
+                    Ok
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

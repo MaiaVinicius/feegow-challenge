@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Entity\SolicitaHorario" table="solicita_horarios">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="specialty_id" column="specialty_id" nullable="false" type="integer"/>
+        <field name="professional_id" column="professional_id" nullable="false" type="integer"/>
+        <field name="name" column="name" nullable="false" type="string"/>
+        <field name="cpf" column="cpf" nullable="false" type="string"/>
+        <field name="source_id" column="source_id" nullable="false" type="integer"/>
+        <field name="birthdate" column="birthdate" nullable="false" type="datetime"/>
+        <field name="date_time" column="date_time" nullable="false" type="datetime"/>
+    </entity>
+</doctrine-mapping>

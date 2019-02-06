@@ -1,0 +1,29 @@
+<div id="mensagens"></div>
+<form>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input required type="text" class="form-control" name="name" id="name" placeholder="Nome completo">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="source_id">
+                <select required id="source_id" name="source_id" class="form-control" placeholder="Origem">
+                    <option value="">Selecione uma origem</option>
+                    <?php /** @var \App\ValueObject\Origem[] $listOrigem */
+                    foreach ($listOrigem as $origem): ?>
+                        <option value="<?= $origem->origem_id ?>"><?= $origem->nome_origem ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input required placeholder="Nascimento" type="date" name="birthdate" class="form-control"
+                   id="birthdate">
+        </div>
+        <div class="form-group col-md-6">
+            <input required type="text" class="form-control" id="cpf" name="cpf" maxlength="11" placeholder="CPF">
+        </div>
+    </div>
+    <button type="button" onclick="persistSolicitaHorario()" class="btn btn-primary">Solicitar horário</button>
+</form>

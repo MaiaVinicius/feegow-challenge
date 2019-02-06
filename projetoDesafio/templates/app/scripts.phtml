@@ -1,0 +1,105 @@
+<script>
+    let objectAgendamento = {};
+
+    persistSolicitaHorario = () => {
+        const form = document.querySelector('form');
+
+        let valido = true;
+        Object.values(form).forEach((input) => {
+            if (!input.validity.valid && input !== '') {
+                console.log(input);
+                valido = false;
+            }
+        });
+
+        if (!valido) {
+            document.getElementById('mensagens').innerHTML =
+                '<div class="alert alert-danger" role="alert">\n' +
+                '  Todos os campos são obrigatórios' +
+                '</div>';
+            return;
+        }
+
+        let objectForm = Object.values(form).reduce((obj, field) => {
+            if (obj[field.name] !== '' && field.value !== '') {
+                obj[field.name] = field.value;
+            }
+            return obj
+        }, {});
+
+        console.log((JSON.stringify(fillObject(objectForm))));
+
+        fetch('/api/persist-solicita-horario', {
+            method: 'POST',
+            body: (JSON.stringify(fillObject(objectForm)))
+        })
+            .then(response => {
+                response.json().then((content) => {
+                    if (!response.ok) {
+                        throw content;
+                    }
+
+                    msgInformacaoModalPersonalizado('Informação', 'Solicitação cadastrada com sucesso', 'Ok');
+
+                }).catch((errorText) => {
+                    msgInformacaoModalPersonalizado('Informação', 'Ocorreu um erro inesperado!', 'Ok');
+                });
+            });
+    };
+
+    buscarProfissionais = () => {
+        if (!document.getElementById('especialidade').validity.valid) {
+            msgInformacaoModalPersonalizado('Informação', 'Campo obrigatório', 'Ok');
+            return;
+        }
+
+        let elementIndex = document.getElementById('especialidade').selectedIndex;
+        let especialidade = document.getElementById('especialidade')[elementIndex].value;
+
+        fetch(`/profissional/list?especialidade=${especialidade}&ativo=1`,
+            {
+                method: 'GET'
+            })
+            .then(response => {
+                response.text().then((content) => {
+                    if (!response.ok) {
+                        throw content;
+                    }
+                    document.getElementById('profissionais').innerHTML = content;
+
+                    fillObject({specialty_id: especialidade});
+                    nomeEspecialidade();
+                }).catch((errorText) => {
+                    msgInformacaoModalPersonalizado('Informação', errorText, 'Ok');
+                });
+            });
+    };
+
+    fillObject = object => {
+        Object.assign(objectAgendamento, object);
+        return objectAgendamento;
+    };
+
+    agenda = profissionalId => {
+        fetch('/agenda', {
+            method: 'GET'
+        })
+            .then(response => {
+                response.text().then((content) => {
+                    if (!response.ok) {
+                        throw content;
+                    }
+                    msgInformacaoModalPersonalizado('Preencha seus dados', content, null);
+                    fillObject({professional_id: profissionalId});
+                }).catch((errorText) => {
+                    msgInformacaoModalPersonalizado('Informação', errorText, 'Ok');
+                });
+            });
+    };
+
+    nomeEspecialidade = () => {
+        let elementIndex = document.getElementById('especialidade').selectedIndex;
+        document.getElementById('nome-especialidade').innerHTML =
+            document.getElementById('especialidade')[elementIndex].text;
+    };
+</script>

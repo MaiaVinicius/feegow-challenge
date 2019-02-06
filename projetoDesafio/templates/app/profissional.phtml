@@ -1,0 +1,38 @@
+<?php
+
+use App\ValueObject\Profissional;
+
+?>
+<div class="container">
+    <div class="align-middle">
+        <h5 class="section-title h1"><span id="nome-especialidade"></span> encontrado(s)</h5>
+    </div>
+    <div class="row">
+        <?php /** @var Profissional[] $listProfissionais */
+        foreach ($listProfissionais as $profissional): ?>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img
+                                                src="<?= $profissional->foto
+                                                ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyf93CzD6zMkpTmIhSDPbqcOnXLaPZEtGHVon_Yee7SErXjkyO_g' ?>"
+                                                alt="card image">
+                                    </p>
+                                    <h4 class="card-title"><?= $profissional->nome ?></h4>
+                                    <p class="card-text"><?= "{$profissional->conselho} {$profissional->documento_conselho}" ?></p>
+                                    <button type="button" onclick="agenda(<?= $profissional->profissional_id ?>)"
+                                            class="btn btn-success">Agendar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
