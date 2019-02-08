@@ -28,7 +28,8 @@ class ProfissionalHandler implements RequestHandlerInterface
     public function __construct(
         ProfissionalService $profissionalService,
         ?TemplateRendererInterface $template = null
-    ) {
+    )
+    {
         $this->profissionalService = $profissionalService;
         $this->template = $template;
     }
@@ -63,7 +64,10 @@ class ProfissionalHandler implements RequestHandlerInterface
                     ['listProfissionais' => $listProfissionais, 'layout' => false]
                 )
             );
-        }catch (\Exception $e){
+        } catch (\JsonMapper_Exception $e) {
+            $statusCode = ($e->getCode() > 100) ? $e->getCode() : 500;
+            return new HtmlResponse('As informações necessárias para esse profissional não foram encontradas', $statusCode);
+        } catch (\Exception $e) {
             $statusCode = ($e->getCode() > 100) ? $e->getCode() : 500;
             return new HtmlResponse($e->getMessage(), $statusCode);
         }

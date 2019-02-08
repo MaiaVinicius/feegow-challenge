@@ -29,12 +29,13 @@ class ProfissionalService
         $this->endpoint = $endpoint;
     }
 
+
     /**
      * @param bool|null $ativo
      * @param int|null $unidadeId
      * @param int|null $especialidadeId
-     * @return iterable|\ArrayObject|Profissional[]
-     * @throws \Exception
+     * @return iterable
+     * @throws \Exception|\JsonMapper_Exception
      */
     public function getListProfissionais(
         ?bool $ativo = null,
