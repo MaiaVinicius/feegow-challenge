@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/feegow-challenge-back/src/Contract" isTestSource="false" packagePrefix="Contract\" />
+      <sourceFolder url="file://$MODULE_DIR$/feegow-challenge-back/src/Domain/src" isTestSource="false" packagePrefix="Domain\" />
+      <sourceFolder url="file://$MODULE_DIR$/feegow-challenge-back/src/Presentation/src" isTestSource="false" packagePrefix="Presentation\" />
+      <sourceFolder url="file://$MODULE_DIR$/feegow-challenge-back/test/AppTest" isTestSource="true" packagePrefix="AppTest\" />
+      <sourceFolder url="file://$MODULE_DIR$/feegow-challenge-back/src/Infrastructure/src" isTestSource="false" packagePrefix="Infrastructure\" />
+      <sourceFolder url="file://$MODULE_DIR$/feegow-challenge-back/src/Application/src" isTestSource="false" packagePrefix="Application\" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/container-interop/container-interop" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/curl/curl" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/collections" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/event-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/orm" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/persistence" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/doctrine/reflection" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/fig/http-message-util" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/ocramius/package-versions" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phar-io/manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpspec/prophecy" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpunit/php-token-stream" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/psr/http-server-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/psr/http-server-middleware" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/object-reflector" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/resource-operations" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/squizlabs/php_codesniffer" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/symfony/contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-code" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-component-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-config-aggregator" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-diactoros" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-escaper" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-eventmanager" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-expressive" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-expressive-helpers" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-expressive-router" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-expressive-template" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-expressive-tooling" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-expressive-zendrouter" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-http" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-httphandlerrunner" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-loader" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-psr7bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-router" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-servicemanager" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-stdlib" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-stratigility" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-uri" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zendframework/zend-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zfcampus/zf-composer-autoloading" />
+      <excludeFolder url="file://$MODULE_DIR$/feegow-challenge-back/vendor/zfcampus/zf-development-mode" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

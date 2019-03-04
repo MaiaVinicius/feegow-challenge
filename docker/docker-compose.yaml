@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  web:
+    build: "./php"
+    container_name: feegow_challenge_back
+    volumes:
+      - ./../feegow-challenge-back/:/var/www/back/
+    ports:
+      - "8001:8001"
+    working_dir: /var/www/back
