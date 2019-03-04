@@ -4,7 +4,15 @@ services:
     build: "./php"
     container_name: feegow_challenge_back
     volumes:
-      - ./../feegow-challenge-back/:/var/www/back/
+      - ./../feegow-challenge-back/:/var/www/html/
     ports:
       - "8001:8001"
-    working_dir: /var/www/back
+    working_dir: /var/www/html
+  web1:
+      build: "./php1"
+      container_name: feegow_challenge_front
+      volumes:
+        - ./../feegow-challenge-front/:/var/www/html/
+      ports:
+        - "8002:8002"
+      working_dir: /var/www/html

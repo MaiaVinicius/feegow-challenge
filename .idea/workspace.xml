@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ddd485e-a063-4649-87a5-b136b1c4105b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feegow-challenge-back" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php/Dockerfile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +20,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker/docker-compose.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state relative-caret-position="255">
+              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/php1/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -37,17 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker/php/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feegow-challenge-back/config/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="72" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="72" />
+            <state relative-caret-position="15">
+              <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -103,6 +104,7 @@
         <option value="$PROJECT_DIR$/feegow-challenge-front/build/index.html" />
         <option value="$PROJECT_DIR$/docker/php/Dockerfile" />
         <option value="$PROJECT_DIR$/docker/docker-compose.yaml" />
+        <option value="$PROJECT_DIR$/docker/php1/Dockerfile" />
       </list>
     </option>
   </component>
@@ -223,6 +225,12 @@
             <path>
               <item name="feegow-challenge" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="docker" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="php1" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="feegow-challenge" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="feegow-challenge-front" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -242,6 +250,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -266,18 +279,18 @@
       <option name="presentableId" value="Default" />
       <updated>1551728032224</updated>
       <workItem from="1551728033950" duration="2250000" />
-      <workItem from="1551730666767" duration="645000" />
+      <workItem from="1551730666767" duration="1282000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2895000" />
+    <option name="totallyTimeSpent" value="3532000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="2560" height="1040" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25179" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25179" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -290,7 +303,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.49344978" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -352,15 +365,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker/php/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        <state relative-caret-position="15">
+          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/php1/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docker/docker-compose.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
         </state>
       </provider>
     </entry>
