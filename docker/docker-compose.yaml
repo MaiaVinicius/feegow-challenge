@@ -16,3 +16,23 @@ services:
       ports:
         - "8002:8002"
       working_dir: /var/www/html
+  db:
+    image: mysql:5
+    container_name: feegow_challenge_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pwd
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: my_pwd
+    ports:
+      - "8092:3306"
+  db1:
+    image: mysql:5
+    container_name: feegow_challenge_db_teste
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pwd
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: my_pwd
+    ports:
+      - "8091:3306"
