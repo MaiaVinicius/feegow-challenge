@@ -15,6 +15,7 @@ Levantar o docker
 ``docker-compose -f docker/docker-compose.yaml up``
 
 Baixar dependencias
+Entrar na pasta feegow_challenge_back para executar:
 ``docker run --rm -it -v $(pwd):/feegow_challenge_back -w /feegow_challenge_back composer install``
 
 Rodar PHPUnit
