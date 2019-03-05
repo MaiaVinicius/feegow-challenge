@@ -1,3 +1,6 @@
 [submodule "feegow-challenge-back"]
 	path = feegow-challenge-back
 	url = https://github.com/mucapacheco/feegow-challenge-back.git
+[submodule "feegow-challenge-front"]
+	path = feegow-challenge-front
+	url = https://github.com/mucapacheco/mucapacheco-feegow-challenge-front.git
