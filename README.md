@@ -1,3 +1,32 @@
+# Desafio Feito Por Tayrone Martins - Developer Full stack
+
+Resumo: Na raiz do projeto vera duas pastas (Back-Laravel-PHP e Front-react-js), o sistema originalmente foi desenvolvido com Laravel no seu back End e com ReactJs em seu Front End. O Sistema está com 100% dos requisitos pedidos! com as boas praticas de mercado introduzido no mesmo.
+
+
+Como instalar: Como dito o sistema foi desenvolvido em Reactjs E Laravel, na Pasta "front-react-js" devera usar apenas o comando "npm install" e após ter instalado as dependências utilize do comando "npm start". Na pasta "Back-Laravel_PHP" devera utilizar dos seguintes comandos: "composer install" após ter instalado todas as suas dependências configure o arquivo ".env", observando que o baco de dados utilizado foi o Mysql, logo após ter configurado o arquivo ".env" digite o seguinte comando "php artisan key:generate", agora devera configurar o baco de dados com o "Migrate", no Laravel eu já configurei toda a parte de banco de dados com o migrate, devera apenas digitar
+"php artisan migrate" isso montara todas as tabelas no banco de dados configurado no ".env", após ter feito todos esses passos podera subir o servidor digitando "php artisan serve" o front end se encontrara no local: 127.0.0.1:3000 e o back end em 127.0.0.1:8000.
+
+
+PS: foi utulizado o php 7.2, e devera descomentar o PDO no arquivo php.ini!!
+
+
+
+ATT, tayrone
+          Martins
+    Desenvolvedor Full - Stack
+    
+
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 # Feegow Challenge
 
 Esse é um teste focado em design de código, e conhecimento de orientação a objeto. O objetivo é avaliar sua experiênica em escrever código de fácil manutenção, baixo acoplamento, e alta coesão.

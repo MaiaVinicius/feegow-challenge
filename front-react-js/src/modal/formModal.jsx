@@ -2,13 +2,17 @@ import React, { Fragment } from 'react';
 import headers from '../componentes/cors'
 import axios from 'axios'
 import { Modal, Button, Form, Col } from 'react-bootstrap'
+import SweetAlert from 'sweetalert2-react';
 
 export default class FormModal extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: ''
+      data: '',
+      sweetAlert: false,
+      titleSweet: '',
+      textSweet: ''
     }
   }
 
@@ -57,11 +61,10 @@ export default class FormModal extends React.Component {
       }
       axios.post('http://127.0.0.1:8000/agendarHorario', { data })
         .then(response => {
-          console.log(response.data)
-          window.location.reload()
+          this.setState({ sweetAlert: true, titleSweet: 'Sucesso!', textSweet: 'Solicitação enviada!!' });
         })
         .catch(e => {
-          console.log(e)
+          this.setState({ sweetAlert: true, titleSweet: 'ERRO', textSweet: 'Favor Preencher os Campos!!' });
         })
 
     }
@@ -104,6 +107,12 @@ export default class FormModal extends React.Component {
           <Button variant="success" onClick={submitFrom}>SOLICITAR HORÁRIO</Button>
           <Button onClick={this.props.onHide}>Fechar</Button>
         </Modal.Footer>
+        <SweetAlert
+                        show={this.state.sweetAlert}
+                        title={this.state.titleSweet}
+                        text={this.state.textSweet}
+                        onConfirm={() => window.location.reload()}
+                    />
       </Modal>
     );
   }
