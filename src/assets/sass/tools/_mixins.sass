@@ -1,0 +1,60 @@
+=transition($tempo) 
+    -webkit-transition: all ease-out $tempo
+    -moz-transition: all ease-out $tempo
+    -ms-transition: all ease-out $tempo
+    -o-transition: all ease-out $tempo
+    transition: all ease-out $tempo
+
+
+=animation($tempo,$animation) 
+    -webkit-animation: $animation $tempo ease-in-out
+    -moz-animation: $animation $tempo ease-in-out
+    -ms-animation: $animation $tempo ease-in-out
+    -o-animation: $animation $tempo ease-in-out
+    animation: $animation $tempo ease-in-out
+
+
+=height($tempo) 
+    -webkit-transition: height $tempo
+    -moz-transition: height $tempo
+    -ms-transition: height $tempo
+    -o-transition: height $tempo
+    transition: height $tempo 
+
+=width($tempo) 
+    -webkit-transition: width $tempo
+    -moz-transition: width $tempo
+    -ms-transition: width $tempo
+    -o-transition: width $tempo
+    transition: width $tempo 
+
+=maxHeight($tempo) 
+    -webkit-transition: max-height $tempo
+    -moz-transition: max-height $tempo
+    -ms-transition: max-height $tempo
+    -o-transition: max-height $tempo
+    transition: max-height $tempo
+
+=border($radius) 
+    border-radius: $radius
+    -moz-border-radius: $radius
+    -webkit-border-radius: $radius
+    -ms-border-radius: $radius
+
+=shadow($val1, $val2, $val3, $val4, $cor) 
+    -webkit-box-shadow: $val1 $val2 $val3 $val4 $cor
+    -moz-box-shadow: $val1 $val2 $val3 $val4 $cor
+    -ms-box-shadow: $val1 $val2 $val3 $val4 $cor
+    box-shadow: $val1 $val2 $val3 $val4 $cor
+
+=scale($size)
+    -webkit-transform: scale($size)  
+    -ms-transform: scale($size)  
+    transform: scale($size)  
+
+=mq($width, $type: min)
+    @if $type == max
+      $width: $width
+
+    @media only screen and (#{$type}-width: $width)
+      @content
