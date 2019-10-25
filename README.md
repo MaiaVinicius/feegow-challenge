@@ -22,7 +22,7 @@ npm run build --report
 
 **No diretório sql, basta importar o arquivo existente e apontar o endpoint na linha :88 em ./views/home/home.vue e alterar os dados no arquivo config para o banco escolhido.
 
-**Acessando o endpoint http://dev.uppercreative.com.br/feegow/debug/true, é possível ver as entradas do banco.
+**Acessando o endpoint http://feegow.dev.uppercreative.com.br/api/debug/true, é possível ver as entradas do banco.
 
-**Endpoint atual para envio do POST: http://dev.uppercreative.com.br/feegow/schedule
+**Endpoint atual para envio do POST: http://feegow.dev.uppercreative.com.br/api/schedule
 
