@@ -1,0 +1,44 @@
+@import '../../../../../assets/sass/tools/_mixins'
+
+.professional-card
+	flex: 0 0 auto 
+	width: 33.333%
+	+mq(814px, max)
+		width: 50%
+		+mq(568px, max)
+			width: 100%
+	padding: 15px
+	&-inner 
+		padding: 15px
+		background-color: white
+		height: 100%
+		border-radius: 10px
+		box-shadow: 0px 0px 15px -10px black
+		display: flex
+		flex-flow: row wrap 
+		justify-content: space-between
+		.md-button
+			margin: 5px auto 0	
+			border-radius: 999px
+		.thumbnail
+			width: 40px
+			height: 40px
+			border-radius: 999px
+			flex: 0 0 auto 
+			background-size: cover
+			background-position: center center
+			background-repeat: no-repeat			
+		.card-info
+			flex: 1
+			h2
+				display: block 
+				font-size: 1.2rem
+				font-weight: bold
+				small 
+					display: inherit
+					font-size: .8rem
+					color: gray
+					font-weight: 300
+					margin: 5px 0	
+			&:not(:only-child)
+				padding-left: 10px

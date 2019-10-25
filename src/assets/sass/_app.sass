@@ -1,7 +1,7 @@
 @import './tools/_mixins'  
 
 body,html
-	background-color: black
+	background-color: whitesmoke
 	min-height: 100vh
 	width: 100%
 	scroll-behavior: smooth
@@ -17,6 +17,15 @@ body,html
 	.fade-enter,
 	.fade-leave-active 
 		opacity: 0
+	.md-list.md-theme-default .md-selected .md-list-item-content, .md-list.md-theme-default .router-link-active .md-list-item-content
+		color: lightgray!important
+	.md-checkbox.md-theme-default.md-checked.md-primary .md-checkbox-container
+		border-color: transparent!important
+		background-color: lightgray!important
+	.md-list.md-theme-default,
+	.md-accent
+	    background-color: lightseagreen !important
+	    box-shadow: none !important
 	#nprogress
 		z-index: 99999
 		.bar
@@ -47,10 +56,15 @@ body,html
 		z-index: 1
 		.__rail-is-vertical
 			z-index: 9999!important
+			right: 0!important
+			bottom: 0!important
+			background-color: white!important
 		.main 
 			overflow: inherit
-		.main 
+			width: 100%
 			flex: 1				
+			padding: 30px
+			color: gray
 		.container
 			margin: 0 auto
 			padding-left: 45px

@@ -1,0 +1,25 @@
+@import '../../../assets/sass/tools/_mixins'
+
+.header
+	width: 100%
+	+mq(460px, max)
+		h3
+			display: none
+	.md-button
+		border-radius: 999px
+		+mq(460px, max)
+			flex: 0 0 auto 
+			width: 100%
+			border-radius: 0
+			margin: 5px auto
+	.md-toolbar
+		+mq(460px, max)
+			padding-right: 15px
+		>.md-field
+			flex: 1
+			margin: -20px 0 0 10px
+			+mq(460px, max)
+				margin: -20px 0 0 0
+			&.md-has-value
+				label 
+					display: none
