@@ -20,7 +20,7 @@ npm run build --report
 
 ## SQL Setup
 
-**No diretório sql, basta importar o arquivo existente e apontar o endpoint na linha :88 em ./views/home/home.vue e alterar os dados no arquivo config para o banco escolhido.
+**No diretório sql, basta importar o arquivo existente e apontar o endpoint na linha :104 em ./views/home/home.vue e alterar os dados no arquivo config para o banco escolhido.
 
 **Acessando o endpoint http://feegow.dev.uppercreative.com.br/api/debug/true, é possível ver as entradas do banco.
 
