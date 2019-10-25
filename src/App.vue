@@ -19,7 +19,6 @@
 
 <script>
 import Vue from 'vue';
-import router from "@/router";
 import VueMaterial from 'vue-material';
 import NProgress from 'nprogress';
 import vuescroll from 'vuescroll';

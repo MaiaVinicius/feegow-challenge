@@ -8,7 +8,7 @@
 			<div class="card-info">
 				<h2>{{this.professional.nome}} <small v-if="this.professional.conselho &&  this.professional.documento_conselho">{{this.professional.conselho + ' ' + this.professional.documento_conselho}}</small></h2>
 
-				<md-button class="md-raised md-accent">Agendar</md-button>
+				<md-button class="md-raised md-accent" @click="agendar">Agendar</md-button>
 			</div>
 		</div>
 	</li>
@@ -18,6 +18,11 @@
 export default {
   name: 'professionalCard',
   props: ['professional'],
+  methods: {
+    agendar() {
+      this.$emit('agendar', this.professional);  
+    }
+  },  
   data () {
     return {
 

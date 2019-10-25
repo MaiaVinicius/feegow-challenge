@@ -1,6 +1,7 @@
 <template>
 	<ul class="professionals-list">
 		<professional-card 
+			v-on:agendar="agendar(professional)"
 			:key="professional.profissional_id"
 			v-for="professional in $store.state.professionals" 
 			:professional="professional" 
@@ -13,6 +14,11 @@ import professionalCard from "@/components/professionalsList/modules/professiona
 
 export default {
   name: 'professionalsList',
+  methods: {
+    agendar(professional) {
+    	this.$emit('agendar', professional);
+    }
+  },  
   components: {
     professionalCard
   } 

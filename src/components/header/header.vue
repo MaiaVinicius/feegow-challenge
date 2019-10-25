@@ -37,6 +37,8 @@ export default {
   	search(ids) {
   		var self = this;
   		store.state.isLoading = true;
+  		store.state.selectedSpecialties = this.selectedSpecialties;
+
 		axios.get(`${store.state.api.url}professional/list`, {
 			headers: {
 				'x-access-token': store.state.api.token

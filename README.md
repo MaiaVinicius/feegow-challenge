@@ -1,4 +1,4 @@
-# autocenter
+# Feegow Challenge
 
 > A Vue.js project
 
@@ -18,4 +18,11 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## SQL Setup
+
+**No diretório sql, basta importar o arquivo existente e apontar o endpoint na linha :88 em ./views/home/home.vue e alterar os dados no arquivo config para o banco escolhido.
+
+**Acessando o endpoint http://dev.uppercreative.com.br/feegow/debug/true, é possível ver as entradas do banco.
+
+**Endpoint atual para envio do POST: http://dev.uppercreative.com.br/feegow/schedule
+

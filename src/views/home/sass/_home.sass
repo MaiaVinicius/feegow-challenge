@@ -1,4 +1,65 @@
 .pg-home
+	& ~ .md-dialog.md-theme-default
+		max-width: 568px
+		width: 100%		
+		background-color: whitesmoke!important
+		color: gray!important
+		padding: 0 0 15px
+		.md-content
+			padding: 15px 25px
+			background: none
+			color: gray		
+		.md-accent
+			border-radius: 999px
+			padding: 0 15px
+		.md-title
+			margin-bottom: 0
+		form 
+			padding: 10px 25px
+			display: flex 
+			flex-flow: row wrap 
+			justify-content: space-between
+			margin: 0 -5px
+			.md-field.md-theme-default>.md-icon,
+			.md-field.md-theme-default.md-focused>.md-icon, 
+			.md-field.md-theme-default.md-highlight>.md-icon
+				color: gray!important
+			.md-field.md-theme-default>.md-icon:after
+				display: none
+			.md-icon.md-icon-font.md-icon-image.md-theme-default svg path:first-of-type
+				fill: gray
+			.md-field
+				flex: 0 0 auto 
+				width: calc(50% - 10px)
+				margin: 0 5px 8px	
+				color: gray!important
+				input
+					color: inherit
+					&[placeholder]
+						color: inherit
+					&::-moz-placeholder
+						color: inherit
+					&::-webkit-input-placeholder
+						color: inherit
+					&:-ms-input-placeholder 
+						color: inherit
+				&.md-theme-default.md-focused .md-input, 
+				&.md-theme-default.md-focused .md-textarea, 
+				&.md-theme-default.md-has-value .md-input, 
+				&.md-theme-default.md-has-value .md-textarea,
+				&.md-theme-default .md-helper-text, 
+				&.md-theme-default .md-count, 
+				&.md-theme-default label,
+				&.md-theme-default.md-focused .md-input, 
+				&.md-theme-default.md-focused .md-textarea, 
+				&.md-theme-default.md-highlight .md-input, 
+				&.md-theme-default.md-highlight .md-textarea,
+				&.md-focused label
+					color: gray!important
+					-webkit-text-fill-color: gray!important
+				&.md-theme-default:after,
+				&.md-theme-default:before
+					background-color: gray!important						
 	.__panel
 		.__view
 			display: flex 
