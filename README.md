@@ -26,3 +26,4 @@ npm run build --report
 
 **Endpoint atual para envio do POST: http://feegow.dev.uppercreative.com.br/api/schedule
 
+**Acessando o arquivo ./store/index.js é possível alterar as variáveis de configuração das API
