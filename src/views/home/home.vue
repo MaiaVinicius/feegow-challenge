@@ -101,7 +101,7 @@ export default {
         data.append('birthdate', this.birthdate);
         data.append('cpf', this.cpf);      
 
-        axios.post('http://dev.uppercreative.com.br/feegow/schedule', data)
+        axios.post(store.state.base_url + '/schedule', data)
         .then((response) => {
           self.response.message = response.data;
           self.response.status = true;
