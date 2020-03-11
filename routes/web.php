@@ -17,4 +17,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'CreateSchedule@index')->name('welcome');
+Route::get('/', 'CreateScheduleController@index')->name('welcome');
+
+Route::get('/professionals/show', 'ProfessionalsController@show')->name('professionals.show');
+

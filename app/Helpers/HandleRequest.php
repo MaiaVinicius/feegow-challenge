@@ -18,7 +18,7 @@ class HandleRequest
                 [
                     'headers' => [
                         'x-access-token' => getenv('TOKEN')
-                    ]
+                    ],
                 ]
             );
             if($res->getStatusCode() == 200)

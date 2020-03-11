@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Model\Specialties;
+use App\Model\Utilities;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
-class CreateSchedule extends Controller
+class CreateScheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,10 @@ class CreateSchedule extends Controller
     public function index()
     {
         $specialties = new Specialties();
-        echo $specialties->getSpecialtiesFromApi();
+        $utilities = new Utilities();
+        $infoSpec["specialties"] = json_decode($specialties->getSpecialtiesFromApi(),true);
+        $infoSpec["utilitiesSelect"] = json_decode($utilities->getSelectOptions(),true);
+        return view('homeSchedule')->with('specialties',$infoSpec);
     }
 
     /**
