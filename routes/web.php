@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'CreateScheduleController@index')->name('welcome');
+Route::put('/sheduling/save', 'CreateScheduleController@store')->name('scheduling.save');
 
 Route::get('/professionals/show', 'ProfessionalsController@show')->name('professionals.show');
 

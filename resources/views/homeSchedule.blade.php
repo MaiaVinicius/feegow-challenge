@@ -4,13 +4,14 @@
     <script type="text/javascript">
         let urlGetSpecialties = "{{ route('professionals.show') }}";
         let doctorAvatar = "{{ URL::asset('img/doctor.png') }}";
+        let schedulingSave = "{{ route('scheduling.save') }}";
     </script>
     <script type="text/javascript" src="{{ URL::asset('js/scheduling.js') }}"></script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6 offset-md-12">
                 <label for="validationDefault04">Especialidades</label>
-                <select class="custom-select" id="choosenSpecialist" required>
+                <select class="custom-select" id="choosenSpecialty" required>
                         <option selected disabled value="">Escolha</option>
                         @foreach($specialties["specialties"]["content"] as $spec)
                             <option value="{{$spec["especialidade_id"]}}">{{$spec["nome"]}}</option>
