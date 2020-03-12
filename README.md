@@ -31,14 +31,16 @@ Gere o arquivo `.env` baseado no `.env.example`
 
 > cp .env.example .env
 
+> de permissao 777 para o arquivo start_server
+
 "Suba" com o container
 
 > docker-composer up -d --build
 
 Instale as dependências utilizando o `composer`
-> docker-composer exec php bash -c "composer install"
-> docker-composer exec php bash -c "npm install"
-> docker-composer exec php bash -c "npm run dev"
+> docker exec -it devTest_php bash -c "composer install"
+> docker exec -it devTest_php bash -c "npm install"
+> docker exec -it devTest_php bash -c "npm run dev"
 
 Gere a `APP_KEY` do Projeto
 > docker-composer exec php bash -c "php artisan key:generate"
