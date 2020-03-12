@@ -14,5 +14,10 @@ class Professionals extends Model
     {
         return HandleRequest::getRequest('https://api.feegow.com.br/api/professional/list?especialidade_id='.$request->especialidade_id);
     }
+    public function getProfessionalSearchedFromApi($id)
+    {
+        return HandleRequest::getRequest('https://api.feegow.com.br/api/professional/search?profissional_id='.$id);
+    }
+
 
 }

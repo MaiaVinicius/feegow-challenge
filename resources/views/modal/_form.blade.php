@@ -1,5 +1,6 @@
 <div class="modal fade" id="formAgendamento" tabindex="-1" role="dialog" aria-labelledby="formAgendamento" aria-hidden="true">
     <div class="modal-dialog" role="document">
+
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Preencha com suas informações</h5>
@@ -8,6 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div id="resp"></div>
                 <form class="form-row">
                     @csrf
                     <div class="form-group col-md-6">

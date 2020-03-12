@@ -43,15 +43,9 @@ class CreateScheduleController extends Controller
     public function store(Request $request)
     {
         $schedule = new Schedule();
-        $schedule->fill([
-            "specialty_id" => $request->specialty_id,
-            "professional_id" => $request->professional_id,
-            "name" => $request->name,
-            "cpf" => $request->cpf,
-            "source_id" => $request->source_id,
-            "birth_date" => $request->birth_date
-        ]);
-        return $schedule->save();
+
+        return $schedule->validateAndSave($request);
+
     }
 
     /**

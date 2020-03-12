@@ -9,6 +9,7 @@
 
     <script type="text/javascript" src="{{ URL::asset('js/scheduling.js') }}"></script>
 <div class="container">
+    <div id="success"></div>
     <div class="row justify-content-center">
         <div class="col-md-6 offset-md-12">
                 <label for="validationDefault04">Especialidades</label>

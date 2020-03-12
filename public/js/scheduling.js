@@ -66,12 +66,30 @@ $("#doctorsCase").on('click','#agendar',function () {
                     specialty_id:$("#choosenSpecialty").val()
                 },
                 success: function(result){
-                    alert("Salvo com sucesso");
                     $('#formAgendamento').modal('hide');
+                    $("#success").append("" +
+                        "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">\n" +
+                        "  <strong> Obrigado pela preferência </strong> Seu Agendamento foi criado com sucesso!.\n" +
+                        "  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+                        "    <span aria-hidden=\"true\">&times;</span>\n" +
+                        "  </button>\n" +
+                        "</div>");
                 },
                 failure: function (result) {
                     alert("Erro ao salvar");
                     $('#formAgendamento').modal('hide');
+                },error: function (data) {
+                    var errors = $.parseJSON(data.responseText);
+                    $("#resp").html();
+                    $.each(errors.errors, function (key, value) {
+                        $("#resp").append("" +
+                            "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">\n" +
+                            "  <strong> OPS! </strong> " + value + ".\n" +
+                            "  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+                            "    <span aria-hidden=\"true\">&times;</span>\n" +
+                            "  </button>\n" +
+                            "</div>");
+                    });
                 }
             }
         );
