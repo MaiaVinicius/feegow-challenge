@@ -6,6 +6,7 @@
         let doctorAvatar = "{{ URL::asset('img/doctor.png') }}";
         let schedulingSave = "{{ route('scheduling.save') }}";
     </script>
+
     <script type="text/javascript" src="{{ URL::asset('js/scheduling.js') }}"></script>
 <div class="container">
     <div class="row justify-content-center">
@@ -28,5 +29,26 @@
 </div>
 @endsection
 
-
+<style>
+    .drCell{
+        background-color: white;
+        border-radius: 40px;
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+    }
+    .drCell img{
+        float:left;
+        width: 50px;
+        height: 50px;
+    }
+    .drCell button{
+        width: 50%;
+        border-radius: 20px;
+    }
+    .drCell p{
+        color: darkgray;
+        font-weight: 400;
+    }
+</style>
 

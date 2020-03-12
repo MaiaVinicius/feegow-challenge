@@ -15,7 +15,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <table>
+                        @foreach($schedule as $sche)
+                            <td>
+                                <tr>{{$sche->id}}</tr>
+                            </td>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>

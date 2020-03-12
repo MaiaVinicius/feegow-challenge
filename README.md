@@ -1,58 +1,61 @@
-# Feegow Challenge
 
-Esse é um teste focado em design de código, e conhecimento de orientação a objeto. O objetivo é avaliar sua experiênica em escrever código de fácil manutenção, baixo acoplamento, e alta coesão.
+# Controle de Clientes e Pedidos de Compra
 
+Projeto desenvolvido em Laravel e Mysql implementando um CRUD simples para Clientes, Produtos e Pedidos de Compra
 
-## Apresentação do problema
+## O que foi feito/falta ser feito
 
-A clínica _Exemplo_ precisa exibir a listagem de seus médicos separados por especialidade em seu site para que seus pacientes tenham acesso. Essa clínica utiliza o Feegow que possui toda a api necessária para isso. 
-Link da documentação: https://api.feegow.com.br/api/documentation 
+**Básico:**
+-  - [x] Escolha de especialidades
+-  - [x] clicar em agendar em um novo medico
+-  - [x] preencher dados de agendamento
+-  - [x] clicar em solicitar horario
 
-  1- A tela inicial deve ser um SELECT contendo a listagem de todas as especialidades que a clínica trabalha (método na documentação: ``GET /specialties/list``). 
-  
-  ![Exemplo do SELECT](https://image.prntscr.com/image/krKCLaZGT1O3rf4h4ETLow.png)
-  
-  
-  2- Quando o usuário escolhe uma especialidade, é executado um AJAX para buscar os profissionais que possuem aquela especialidade e exibido em tela (método na documentação: ``GET /professional/list``). 
-
-  ![Exemplo do SELECT](https://image.prntscr.com/image/v4cm7l99TOuvcyhHuIgaJw.png)
-
-  3- Quando o usuário clica em "AGENDAR", será exibido um formulário que o usuário irá preencher e clicar em "ENVIAR".
-  
-  ![Exemplo do SELECT](https://image.prntscr.com/image/w34r0YIUQsmlJcq7DcaIQA.png)
-  
-  4- Quando o usuário enviar, deverá enviar o formulário por AJAX e salvar todas as informações em um banco de dados relacional contendo: **specialty_id, professional_id, name, cpf, source_id (GET /patient/list-sources), birthdate e date_time**.
-      
-  Obs: A listagem do campo "Como conheceu" deve vir da api (método ``GET /patient/list-sources`` )
-  
-  5- Após salvar as informações exibir uma informação ao usuário que os dados foram salvos.
+**Bônus:**
+-  - [x] Acesso aos cadastros de horarios via api 
+-  - Ex: {"id":3,"specialty_id":201,"professional_id":126,"source_id":43,"name":"Wanderson Macedo","birth_date":"2020-03-03","cpf":"14115214716","created_at":"2020-03-12T00:23:45.000000Z","updated_at":"2020-03-12T00:23:45.000000Z"}]
 
 
-## Tecnologias usadas
+## Instalação
 
-Os pré-requisitos para a aplicação:
+Clone o Repositório(`feegow-challenge`)  
 
-- Use o PHP como linguagem backend, de preferencia a partir da versão 7.
-- Usar Bootstrap ou qualquer framework front-end de sua preferência.
-- Banco deve ser relacional, de preferencia MySQL
-- Documentação sucinta e explicativa de como rodar seu código e levantar os ambientes.
+Entre no diretório `feegow-challenge`.
 
-## Avaliação
+> cd feegow-challenge
 
-Para nos enviar seu código, você poderá escolher as 3 opções abaixo:
+Gere o arquivo `.env` baseado no `.env.example`
 
-- Fazer um fork desse repositório e nos mandar uma pull-request
-- Dar acesso ao seu repositório privado no Github ou Bitbucket para viniciusmaia@feegow.com.br.
-- Enviar um git bundle do seu repositório para os e-mail viniciusmaia@feegow.com.br.
+> cp .env.example .env
 
-Caso opte por fazer um Pull-Request, deixe ele explicativo apontando tudo que precisa ser feito para rodar sua aplicação. 
+"Suba" com o container
 
-## Dicas
+> docker-composer up -d --build
 
-- Aproveite os recursos das ferramentas que você está usando. Diversifique e mostre que você domina cada uma delas.
-- Tente escrever seu codigo o mais claro e limpo possível. Código deve ser legível assim como qualquer texto dissertativo.
-- Se destaque mostrando algo interessante e surpreendente. Isso sempre fará diferença.
+Instale as dependências utilizando o `composer`
+> docker-composer exec php bash -c "composer install"
+> docker-composer exec php bash -c "npm install"
+> docker-composer exec php bash -c "npm run dev"
 
-Qualquer dúvida técnica, envie uma mensagem para viniciusmaia@feegow.com.br.
+Gere a `APP_KEY` do Projeto
+> docker-composer exec php bash -c "php artisan key:generate"
 
-Você terá 3 dias para fazer esse teste, a partir do recebimento deste desafio. Sucesso!
+De permissões de escrita e leitura para as pastas dentro de `/storage` 
+> chmod -R 777 storage
+
+Crie os Bancos de dados referente a aplicação e aos testes
+> docker-composer exec mysql mysql -p
+> CREATE DATABASE laravel
+> CREATE DATABASE laravel_tests
+
+Configure as variáveis de ambiente no .env
+* `DB_` Dados de conexão com o mysql
+* `TEST_DB_` Dados de conexão com o mysql para testes unitários
+
+Execute as migrations(se quiser execute com `--seed` que irá executar os seeders)
+> docker-composer exec php bash -c "php artisan migrate"
+
+
+### Testing  
+
+>docker-compose exec php bash -c "./vendor/bin/phpunit tests"
