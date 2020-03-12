@@ -1,7 +1,7 @@
 
 # Controle de Clientes e Pedidos de Compra
 
-Projeto desenvolvido em Laravel e Mysql implementando um CRUD simples para Clientes, Produtos e Pedidos de Compra
+Projeto desenvolvido em Laravel e Mysql utilizando ajax e guzzle para requisicoes de rest
 
 ## O que foi feito/falta ser feito
 
@@ -12,7 +12,7 @@ Projeto desenvolvido em Laravel e Mysql implementando um CRUD simples para Clien
 -  - [x] clicar em solicitar horario
 
 **Bônus:**
--  - [x] Acesso aos cadastros de horarios via api 
+-  - [x] Acesso aos cadastros de horarios via api (pública)
 -  - Ex: {"id":3,"specialty_id":201,"professional_id":126,"source_id":43,"name":"Wanderson Macedo","birth_date":"2020-03-03","cpf":"14115214716","created_at":"2020-03-12T00:23:45.000000Z","updated_at":"2020-03-12T00:23:45.000000Z"}]
 
 
