@@ -1,0 +1,33 @@
+.dvSelect {
+    margin-top: 25px;
+}
+
+.cardProfessional {
+    width: 30%;
+    height: 120px;
+    margin: 7px;
+    padding: 3px;
+}
+
+.dvPhoto {
+    height: 75px;
+}
+
+.imgPhoto {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.center {
+    text-align: center;
+}
+
+.titleHidden {
+    margin-top: 25px;
+    display: none;
+}
+
+.btnSchedule {
+    width: 70%;
+}
