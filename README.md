@@ -13,6 +13,7 @@
 </ul>
 
 <h3>Variáveis de ambiente necessárias (Arquivo .env)</h3>
+<p>Podem ser inseridas manualmente ou realizando a substituição do conteúdo do arquivo .env com o do .env.example</p>
 FEEGOW_API_URL=https://api.feegow.com.br/api/<br/>
 FEEGOW_API_TOKEN=token_api_feegow # 'Substituir token_api_feegow pelo token de acesso à API da Feegow'
 
