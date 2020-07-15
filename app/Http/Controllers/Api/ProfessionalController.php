@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Api\ApiMessages;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfessionalRequest;
+use App\Http\Resources\ProfessionalCollection;
+use App\Repository\ProfessionalRepository;
 use Illuminate\Http\Request;
 
 class ProfessionalController extends Controller
@@ -12,9 +16,18 @@ class ProfessionalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ProfessionalRequest $request)
     {
-        //
+        try {
+            $professionalRepository = new ProfessionalRepository();
+
+            $professionals = $professionalRepository->listBySpecialty($request);
+
+            return new ProfessionalCollection($professionals);
+        } catch (\Throwable $e) {
+            $message = new ApiMessages($e->getMessage());
+            return response()->json($message->getMessage(), 401);
+        }
     }
 
     /**
