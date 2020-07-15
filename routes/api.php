@@ -23,6 +23,8 @@ Route::prefix('v1')->namespace('Api')->group(function() {
     Route::get('specialties', 'SpecialtiesController@index');
 
     Route::get('professionals', 'ProfessionalController@index');
-    
+
     Route::get('patient/list-source', 'PatientController@listSource');
+
+    Route::resource('schedule', 'ScheduleController');
 });
