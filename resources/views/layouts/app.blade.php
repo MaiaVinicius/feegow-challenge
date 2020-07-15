@@ -42,7 +42,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('formViewSchedule') }}">
                                 Agenda Médica
                             </a>
                         </li>
