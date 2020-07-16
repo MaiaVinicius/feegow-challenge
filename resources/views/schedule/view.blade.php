@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-sm-4 offset-sm-8 text-md-right">
-                            <a href="/schedule/new" class="btn btn-sm btn-success">
+                            <a href="{{ route('formCreateSchedule') }}" class="btn btn-sm btn-success">
                                 <i class="material-icons vertical-align-middle">note_add</i> Novo Agendamento
                             </a>
                         </div>

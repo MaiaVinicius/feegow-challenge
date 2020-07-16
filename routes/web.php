@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('schedule/view', 'ScheduleController@formView')->name('formViewSchedule');
+Route::get('schedule/create', 'ScheduleController@formCreate')->name('formCreateSchedule');

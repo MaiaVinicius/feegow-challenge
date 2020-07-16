@@ -14,22 +14,9 @@ var ScheduleView = (function(){
         },
     },
     _clickButton = {
-        destroy: function(){
-            $("table > tbody").on("click", ".destroyProduct", function() {
-                var productId = $(this).attr("product_id");
-
-                _configurationGeneral.submitPost("/api/v1/product/" + productId, {}, "DELETE");
-                location.reload();
-            });
-        },
         nextPage: function(){
             $("#paginationNav").on("click", ".page-link", function() {
                 _autoLoading.dataProducts($(this).attr("page"));
-            });
-        },
-        search: function() {
-            $("#btnSearch").click(function() {
-                _autoLoading.dataProducts();
             });
         },
     },
@@ -79,9 +66,7 @@ var ScheduleView = (function(){
     _load = {
         begin: function(){
             _autoLoading.dataProducts();
-            _clickButton.destroy();
             _clickButton.nextPage();
-            _clickButton.search();
         }
     };
     return {

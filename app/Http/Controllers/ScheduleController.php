@@ -10,4 +10,9 @@ class ScheduleController extends Controller
     {
         return view('schedule.view');
     }
+
+    public function formCreate()
+    {
+        return view('schedule.create');
+    }
 }
