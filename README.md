@@ -1,58 +1,34 @@
-# Feegow Challenge
+<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-Esse é um teste focado em design de código, e conhecimento de orientação a objeto. O objetivo é avaliar sua experiênica em escrever código de fácil manutenção, baixo acoplamento, e alta coesão.
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
 
+## Sobre
 
-## Apresentação do problema
+Desenvolvimento de um sistema de agendamento de consultas, utilizando uma API externa para obter os dados 
+do médico. Foi utilizado as seguintes tecnologias:  
 
-A clínica _Exemplo_ precisa exibir a listagem de seus médicos separados por especialidade em seu site para que seus pacientes tenham acesso. Essa clínica utiliza o Feegow que possui toda a api necessária para isso. 
-Link da documentação: https://api.feegow.com.br/api/documentation 
-
-  1- A tela inicial deve ser um SELECT contendo a listagem de todas as especialidades que a clínica trabalha (método na documentação: ``GET /specialties/list``). 
-  
-  ![Exemplo do SELECT](https://image.prntscr.com/image/krKCLaZGT1O3rf4h4ETLow.png)
-  
-  
-  2- Quando o usuário escolhe uma especialidade, é executado um AJAX para buscar os profissionais que possuem aquela especialidade e exibido em tela (método na documentação: ``GET /professional/list``). 
-
-  ![Exemplo do SELECT](https://image.prntscr.com/image/v4cm7l99TOuvcyhHuIgaJw.png)
-
-  3- Quando o usuário clica em "AGENDAR", será exibido um formulário que o usuário irá preencher e clicar em "ENVIAR".
-  
-  ![Exemplo do SELECT](https://image.prntscr.com/image/w34r0YIUQsmlJcq7DcaIQA.png)
-  
-  4- Quando o usuário enviar, deverá enviar o formulário por AJAX e salvar todas as informações em um banco de dados relacional contendo: **specialty_id, professional_id, name, cpf, source_id (GET /patient/list-sources), birthdate e date_time**.
-      
-  Obs: A listagem do campo "Como conheceu" deve vir da api (método ``GET /patient/list-sources`` )
-  
-  5- Após salvar as informações exibir uma informação ao usuário que os dados foram salvos.
+- PHP 7.4
+- Laravel 7.1
+- MariaDb
+- JSON
+- HTTP 1.1
+- Bootstrap 4
+- JQuery
+- JavaScript
+- HTML5
+- CSS
+- Materialize Icons
 
 
-## Tecnologias usadas
+## Processo de instalação
 
-Os pré-requisitos para a aplicação:
+- Fazer uma cópia do arquivo .env.example e salvar como .env
+- Criar um vhost em seu servidor para a pasta public do projeto
+- Criar um database chamado clinica, com charset utf8 e collation utf8_unicode_ci
+- Executar o comando php artisan migrate
 
-- Use o NODEJS/PHP como linguagem backend.
-- Usar Bootstrap ou qualquer framework front-end de sua preferência.
-- Banco deve ser relacional, de preferencia MySQL/POSTGRESQL
-- Documentação sucinta e explicativa de como rodar seu código e levantar os ambientes.
-
-## Avaliação
-
-Para nos enviar seu código, você poderá escolher as 3 opções abaixo:
-
-- Fazer um fork desse repositório e nos mandar uma pull-request
-- Dar acesso ao seu repositório privado no Github ou Bitbucket para viniciusmaia@feegow.com.br.
-- Enviar um git bundle do seu repositório para os e-mail viniciusmaia@feegow.com.br.
-
-Caso opte por fazer um Pull-Request, deixe ele explicativo apontando tudo que precisa ser feito para rodar sua aplicação. 
-
-## Dicas
-
-- Aproveite os recursos das ferramentas que você está usando. Diversifique e mostre que você domina cada uma delas.
-- Tente escrever seu codigo o mais claro e limpo possível. Código deve ser legível assim como qualquer texto dissertativo.
-- Se destaque mostrando algo interessante e surpreendente. Isso sempre fará diferença.
-
-Qualquer dúvida técnica, envie uma mensagem para viniciusmaia@feegow.com.br.
-
-Você terá 3 dias para fazer esse teste, a partir do recebimento deste desafio. Sucesso!
