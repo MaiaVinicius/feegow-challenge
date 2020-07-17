@@ -1,0 +1,68 @@
+version: '3'
+services:
+    web:
+        image: nginx:latest
+        container_name: nginx
+        restart: always
+        ports:
+            - "80:80"
+        volumes: 
+            - ./www:/www
+            - ./site.conf:/etc/nginx/conf.d/site.conf
+        links:
+            - php
+    php:
+        image: php:7.3-fpm
+        container_name: frontend
+        volumes:
+            - ./www:/www
+        links:
+            - banco
+    banco:
+        image: mysql:5.7
+        container_name: banco
+        ports:
+        - "3306:3306"
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: feegow
+            MYSQL_DATABASE: feegow
+            MYSQL_USER: feegow
+            MYSQL_PASSWORD: feegow
+        networks:
+            - rede
+    backend:
+        image: node:13-alpine
+        container_name: backend
+        volumes: 
+            - ./backend:/app
+        working_dir: /app
+        networks:
+            - rede
+        expose:
+            - "80"
+        ports:
+            - "${PORT:-3000}:${PORT:-3000}"
+            - "29229:29229" #debug
+        environment:
+            #Backend
+            PORT: ${PORT:-3000}
+            #BANCO
+            DB_CONNECTION: mysql
+            DB_HOST: banco
+            DB_PORT: 3306
+            DB_DATABASE: ${DB_DATABASE:-feegow}
+            DB_USERNAME: ${DB_USERNAME:-feegow}
+            DB_PASSWORD: ${DB_PASSWORD:-feegow}
+    
+            #API
+            API_URL: "https://api.feegow.com.br/api/"
+            TOKEN_API: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJmZWVnb3ciLCJhdWQiOiJwdWJsaWNhcGkiLCJpYXQiOiIxNy0wOC0yMDE4IiwibGljZW5zZUlEIjoiMTA1In0.UnUQPWYchqzASfDpVUVyQY0BBW50tSQQfVilVuvFG38"
+    
+        depends_on:
+            - "banco"
+        command: npm start
+networks:
+    rede:
+        external: true
