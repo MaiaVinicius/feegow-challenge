@@ -1,0 +1,34 @@
+.navbar-brand img {
+    max-width: 150px !important;
+}
+
+.card-group {
+    display: flex;
+    margin-top: 2em;
+}
+
+.card-group .card {
+    flex: 1 0 24%; /* explanation below */
+    max-width: 24%;
+    margin-left: 10px !important;
+    border: none;
+}
+
+.link-agendar {
+    width: 100%;
+    background-color: #d3d3d3;
+    color: #909090;
+    display: block;
+    padding: 1em 0;
+}
+
+.link-agendar:hover{
+    background-color: #909090;
+    cursor: pointer;
+}
+
+#loading {
+    width: 100px;
+    margin-top: 30%;
+    margin-left: 50%;
+}
