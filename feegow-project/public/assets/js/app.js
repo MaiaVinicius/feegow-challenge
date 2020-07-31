@@ -103,16 +103,19 @@ function handleSubmitConsulta(event) {
         type: method,
         url: actionUrl,
         data: form.serializeArray(),
+        beforeSend: function() {
+            form.find("button[type='submit']").attr('disabled', true);
+        },
         success: function (response) {
             $.toast({
                 heading: 'Sucesso!',
-                text: `${response}. Aguarde a página recarregar.`,
+                text: `${response}.`,
                 icon: 'success',
                 loader: true,
                 position: 'bottom-center'
             });
 
-            setTimeout(() => location.reload(), 5000);
+            setTimeout(() => hideFormConsulta(), 3000);
         },
         error: function (reject) {
 
@@ -150,7 +153,9 @@ function handleSubmitConsulta(event) {
                 });
             }
         },
-        beforeSend: function () { },
+        complete: function () { 
+            form.find("button[type='submit']").removeAttr('disabled');
+        },
     });
 }
 
