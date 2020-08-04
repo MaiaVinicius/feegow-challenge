@@ -1,0 +1,71 @@
+body{
+  background: #fff;
+  font-size: 14px;
+  font-size: .875rem;
+  line-height: 1.4;
+  font-family: "Roboto";
+  color: #555;
+}
+
+.select2-container--default .select2-selection--single:not(.form-control), .select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  height: 45px;
+  border:none;
+}
+
+[id^=select2-source_id]{
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057 !important;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  line-height: 28px !important;
+}
+
+.card{
+  margin-bottom: 25px;
+  background-color: #fff;
+  border-radius: 5px;
+  -moz-box-shadow: 0 0 15px 0 rgba(0,0,0,.05);
+  box-shadow: 0 0 15px 0 rgba(0,0,0,.05);
+  border:none;
+}
+.card-body{
+  text-align: center;
+}
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  color: #9EA5B0;
+  line-height: 45px;
+}
+
+.card-columns::media-breakpoint-only(lg) {
+  column-count: 4;
+}
+.card-columns::media-breakpoint-only(xl) {
+  column-count: 5;
+}
+
+/* PROFESSIONALS */
+.foto {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.card-footer {
+  padding: 0;
+  background-color: #fff;
+  border-top: none;
+}
+.position-absolute {
+  bottom:0
+}
