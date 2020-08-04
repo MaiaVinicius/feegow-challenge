@@ -1,58 +1,44 @@
-# Feegow Challenge
+# FeeConsult - Tutorial de configuração de ambiente.
 
-Esse é um teste focado em design de código, e conhecimento de orientação a objeto. O objetivo é avaliar sua experiênica em escrever código de fácil manutenção, baixo acoplamento, e alta coesão.
+#### Este tutorial será dividido em 4 partes
 
+- Instalação o XAMPP.
+- Configuração do ambiente.
+- Adicioando os arquivos.
+- AWS - Sistema online -> [link](http://3.233.205.156/)
 
-## Apresentação do problema
+# 1 - Instalação o XAMPP!
 
-A clínica _Exemplo_ precisa exibir a listagem de seus médicos separados por especialidade em seu site para que seus pacientes tenham acesso. Essa clínica utiliza o Feegow que possui toda a api necessária para isso. 
-Link da documentação: https://api.feegow.com.br/api/documentation 
+  - Baixe o arquivo referente ao seu sistema operacional no link [XAMMP](https://www.apachefriends.org/pt_br/download.html)
+  - Execute o instalador e clique em "next" até o processo terminar.
 
-  1- A tela inicial deve ser um SELECT contendo a listagem de todas as especialidades que a clínica trabalha (método na documentação: ``GET /specialties/list``). 
-  
-  ![Exemplo do SELECT](https://image.prntscr.com/image/krKCLaZGT1O3rf4h4ETLow.png)
-  
-  
-  2- Quando o usuário escolhe uma especialidade, é executado um AJAX para buscar os profissionais que possuem aquela especialidade e exibido em tela (método na documentação: ``GET /professional/list``). 
+# 2 - Configuração do ambiente
+#### 2.1 - Ajustes e Inicialização
+  - Procure no directório de instalação a pasta php e abra o arquivo `php.ini` (Ex: C:\xampp\php)
+  - Pesquise por `;extension=php_curl.dll`e remova o ";" do inicio.
+  - Salve o documento e inicie o servidor clicando o aplicativo Xammp.
+  - Assim que abrir o aplicativo, é necessário inicializar os serviços `Apache` e `MySQL`. Basta clicar em `Start` na coluna Actions.
+#### 2.2 - Configurando o Banco de dados
+  - Baixe a estrutura do banco neste link [BD](http://3.233.205.156/bd/feegow_agendamentos.sql) e salve como `feegow_agendamentos.sql`
+  - Abra o `phpMyAdmin`, clicando no botão ADMIN no Xammp, e click em novo .
+  - Nome da base de dados deve ser `feegow_agendamentos` e click em executar.
+  - Click na base de dados recém criada e vá até o item `import`.
+  - Arraste para a página ou selecione o arquivo `feegow_agendamentos.sql` baixado anteriormente.
 
-  ![Exemplo do SELECT](https://image.prntscr.com/image/v4cm7l99TOuvcyhHuIgaJw.png)
+# 3 - Adicionando os arquivos
+  - Copie todos os arquivos deste repositório para a pasta `htdocs` do Xammp. 
+  - A url de acesso vai depender do nome que der a pasta. Ex:   
+    * Arquivos direto no htdocs: http://127.0.0.1/
+    * Pasta feegow-challenge: http://127.0.0.1/feegow-challenge/
+    
+# 4 - Sistema online -> [http://3.233.205.156/](http://3.233.205.156/)
+  - Acesso ao banco http://3.233.205.156/phpMyAdmin/
+  - Usuário: `root`, senha: `t*x4J#GFpUgXAe3`
 
-  3- Quando o usuário clica em "AGENDAR", será exibido um formulário que o usuário irá preencher e clicar em "ENVIAR".
-  
-  ![Exemplo do SELECT](https://image.prntscr.com/image/w34r0YIUQsmlJcq7DcaIQA.png)
-  
-  4- Quando o usuário enviar, deverá enviar o formulário por AJAX e salvar todas as informações em um banco de dados relacional contendo: **specialty_id, professional_id, name, cpf, source_id (GET /patient/list-sources), birthdate e date_time**.
-      
-  Obs: A listagem do campo "Como conheceu" deve vir da api (método ``GET /patient/list-sources`` )
-  
-  5- Após salvar as informações exibir uma informação ao usuário que os dados foram salvos.
-
-
-## Tecnologias usadas
-
-Os pré-requisitos para a aplicação:
-
-- Use o PHP como linguagem backend.
-- Usar Bootstrap ou qualquer framework front-end de sua preferência.
-- Banco deve ser relacional, de preferencia MySQL/POSTGRESQL
-- Documentação sucinta e explicativa de como rodar seu código e levantar os ambientes.
-
-## Avaliação
-
-Para nos enviar seu código, você poderá escolher as 3 opções abaixo:
-
-- Fazer um fork desse repositório e nos mandar uma pull-request
-- Dar acesso ao seu repositório no Github para viniciusmaia@feegow.com.br.
-- Enviar um git bundle do seu repositório para os e-mail viniciusmaia@feegow.com.br.
-
-Caso opte por fazer um Pull-Request, deixe ele explicativo apontando tudo que precisa ser feito para rodar sua aplicação. 
-
-## Dicas
-
-- Aproveite os recursos das ferramentas que você está usando. Diversifique e mostre que você domina cada uma delas.
-- Tente escrever seu codigo o mais claro e limpo possível. Código deve ser legível assim como qualquer texto dissertativo.
-- Se destaque mostrando algo interessante e surpreendente. Isso sempre fará diferença.
-
-Qualquer dúvida técnica, envie uma mensagem para viniciusmaia@feegow.com.br.
-
-Você terá 3 dias para fazer esse teste, a partir do recebimento deste desafio. Sucesso!
+### Foram usados no projeto os itens abaixo:
+ - [Bootstrap 4.5](https://getbootstrap.com/)
+ - [Select2](https://select2.org/)
+ - [Bootstrap Notif](http://bootstrap-notify.remabledesigns.com/)
+ - [jQuery Mask](https://igorescobar.github.io/jQuery-Mask-Plugin/)
+ 
+ Feito por Douglas Carvalho
