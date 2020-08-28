@@ -23,21 +23,22 @@ class FeegowClinicRepository
     }
 
     public function specialty(){
-        $response = $this->client->request('GET', 'specialties/list');
 
-        return $response->getBody()->getContents();
+        $response = $this->client->request('GET', 'specialties/list');
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     public function professional(){
+        
         $response = $this->client->request('GET', 'professional/list');
+        return json_decode($response->getBody()->getContents(), true);
 
-        return $response->getBody()->getContents();
     }
 
     public function sources(){
+        
         $response = $this->client->request('GET', 'patient/list-sources');
-
-        return $response->getBody()->getContents();
+        return json_decode($response->getBody()->getContents(), true);
     }
 
 

@@ -21,10 +21,13 @@ class SchedulingController extends Controller
         $this->scheduling = $clinic;
     }
 
-    public function index()
+    public function specialties()
     {
-        $specialties = $this->scheduling->specialty();
-        return $specialties;
+       $specialties = $this->scheduling->specialty();
+        return response()->Json([
+            'specialties' => $specialties,
+            'res' => ' O recurso solicitado foi processado e retornado com sucesso.'
+        ], 200);
     }
 
     public function professional()
