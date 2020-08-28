@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 
-use App\Client\FeegowClient;
+use App\Clients\FeegowClient;
 
 class FeegowClinicRepository
 {
@@ -23,19 +23,19 @@ class FeegowClinicRepository
     }
 
     public function specialty(){
-        $response = $this->client->request('GET', '/specialties/list');
+        $response = $this->client->request('GET', 'specialties/list');
 
         return $response->getBody()->getContents();
     }
 
     public function professional(){
-        $response = $this->client->request('GET', '/professional/list');
+        $response = $this->client->request('GET', 'professional/list');
 
         return $response->getBody()->getContents();
     }
 
     public function sources(){
-        $response = $this->client->request('GET', '/patient/list-sources');
+        $response = $this->client->request('GET', 'patient/list-sources');
 
         return $response->getBody()->getContents();
     }

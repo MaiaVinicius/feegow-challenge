@@ -22,7 +22,7 @@ class FeegowClient
         $this->endpoint = env('FEEGOW_API_URL');
         if(!$this->endpoint) throw new \ErrorException('feegow url was not defined');
 
-        $this->token = env('X-ACCESS-TOKEN');
+        $this->token = env('FEEGOW_TOKEN');
         if(!$this->token) throw new \ErrorException('feegow token was not defined');
 
         $this->client = new Client();
