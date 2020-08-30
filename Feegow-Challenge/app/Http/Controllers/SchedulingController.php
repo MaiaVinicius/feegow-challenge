@@ -33,7 +33,10 @@ class SchedulingController extends Controller
     public function professional()
     {
         $professional = $this->scheduling->professional();
-        return $professional;
+        return response()->Json([
+            'professional' => $professional,
+            'res' => ' O recurso solicitado foi processado e retornado com sucesso.'
+        ], 200);
     }
 
     public function sources()

@@ -1,16 +1,14 @@
 <template>
     <div class="article-admin">
         <b-form>
-            <input id="article-id" type="hidden" v-model="article.id" />
-            
             <b-form-group v-if="mode === 'save'" 
                 label="Consulta de :" label-for="">
-                <b-form-select id=""
-                    :options="specialties" />
+                <b-form-select id="specialties-id"
+                    :options="specialties" v-model="specialist.especialidade_id"/>
             </b-form-group>
 
             <b-button variant="primary" v-if="mode === 'save'"
-                @click="save">Agendar</b-button>
+                @click="loadProfessional">Selecionar</b-button>
         </b-form>
     </div>
 </template>
@@ -25,47 +23,37 @@ export default {
     data: function() {
         return {
             mode: 'save',
-            article: {},
+            specialist: {},
             specialties: [],
-            categories: [],
-            users: [],
-            page: 1,
-            limit: 0,
-            count: 0,
-            fields: [
-                { key: 'id', label: 'Código', sortable: true },
-                { key: 'name', label: 'Nome', sortable: true },
-                { key: 'description', label: 'Descrição', sortable: true },
-                { key: 'actions', label: 'Ações' }
-            ]
+            professional: {},
+            professionals: []
+          
         }
     },
     methods: {
         loadSpecialties() {
             const url = `${baseApiUrl}/api/specialties`
             axios.get(url).then(res => {
-                this.specialties = res.data.specialties.content
-           
+                    this.specialties = res.data.specialties.map(specialist => {
+                return { ...specialist, value: specialist.especialidade_id, text: specialist.nome }
+                })
             })
         },
-        reset() {
-            this.mode = 'save'
-            this.article = {}
-            this.loadArticles()
+
+        loadProfessional() {
+            const url = `${baseApiUrl}/api/professional`
+            axios.get(url).then(res => {
+                 this.professionals = res.data.professional
+            }).catch(showError)
+
+
         },
+
+
         save() {
             const method = this.article.id ? 'put' : 'post'
             const id = this.article.id ? `/${this.article.id}` : ''
             axios[method](`${baseApiUrl}/articles${id}`, this.article)
-                .then(() => {
-                    this.$toasted.global.defaultSuccess()
-                    this.reset()
-                })
-                .catch(showError)
-        },
-        remove() {
-            const id = this.article.id
-            axios.delete(`${baseApiUrl}/articles/${id}`)
                 .then(() => {
                     this.$toasted.global.defaultSuccess()
                     this.reset()
