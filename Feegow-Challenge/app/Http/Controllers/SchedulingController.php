@@ -48,4 +48,25 @@ class SchedulingController extends Controller
             'res' => ' O recurso solicitado foi processado e retornado com sucesso.'
         ], 200);
     }
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $dataForm =  $request->all();
+                                  
+            if (isset($dataForm)) {
+                $item = new FeegowData($dataForm);
+                  $item->save();
+                return response()->Json([
+                  'res'=>'O recurso informado foi criado com sucesso.'
+                ], 201);
+            }
+        return response()->Json([
+            'res'=>'A requisição foi recebida com sucesso, porém contém parâmetros inválidos.'
+        ], 422);     
+    }
 }
