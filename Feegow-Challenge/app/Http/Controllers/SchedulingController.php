@@ -42,6 +42,9 @@ class SchedulingController extends Controller
     public function sources()
     {
         $sources = $this->scheduling->sources();
-        return $sources;
+        return response()->Json([
+            'sources' => $sources,
+            'res' => ' O recurso solicitado foi processado e retornado com sucesso.'
+        ], 200);
     }
 }

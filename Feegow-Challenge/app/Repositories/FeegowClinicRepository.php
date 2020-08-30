@@ -75,11 +75,11 @@ class FeegowClinicRepository
             case 'sources':
                 foreach ($data as $item){
                     $collect->push([
-                        '' => (int) $item['especialidade_id'],
-                        'nome' =>  $item['nome'],
+                        'origem_id' => (int) $item['origem_id'],
+                        'nome_origem' =>  $item['nome_origem'],
                     ]);
                 }
-                return $collect->sortByDesc('especialidade_id')->values()->toJson();
+                return $collect->values()->toJson();
                 break;
 
             default:
