@@ -15,11 +15,12 @@ class FeegowDataForm extends Migration
     {
         Schema::create('feegow_data', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->integer('specialty_id');
             $table->integer('professional_id');
             $table->bigInteger('cpf');
             $table->integer('source_id');
-            $table->string('birthdate');
+            $table->date('birthdate');
         });
     }
 

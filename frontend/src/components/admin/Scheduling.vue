@@ -23,7 +23,6 @@
         </b-row>
 
         <b-form v-if="seeForm === true">
-        <input id="user-id" type="hidden" v-model="formData.id" />
             <b-row>
                 <b-col md="6" sm="12">
                     <b-form-group label="Nome Completo:" label-for="formData-name">
@@ -43,13 +42,13 @@
             </b-row>
             <b-row >
                 <b-col md="6" sm="12">
-                    <b-form-group label="CPF/CNPJ:" label-for="formData-cpf">
+                    <b-form-group label="CPF/CNPJ:" label-for="formData-cpf" id="formData-cpf">
                       <the-mask :mask="['###.###.###-##', '##.###.###/####-##']" v-model="formData.cpf" />
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
                     <b-form-group label="Como Conheceu:">
-                   <b-form-select id="specialties-id"
+                   <b-form-select id="source-id"
                     :options="sources" v-model="source.especialidade_id"/>
                     </b-form-group>
                 </b-col>
