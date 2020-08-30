@@ -1,15 +1,27 @@
 <template>
     <div class="article-admin">
-        <b-form>
-            <b-form-group v-if="mode === 'save'" 
+        <b-form v-if="seeSelect === true">
+            <b-form-group  
                 label="Consulta de :" label-for="">
                 <b-form-select id="specialties-id"
                     :options="specialties" v-model="specialist.especialidade_id"/>
             </b-form-group>
 
-            <b-button variant="primary" v-if="mode === 'save'"
+            <b-button variant="primary" 
                 @click="loadProfessional">Selecionar</b-button>
         </b-form>
+        <b-row>
+            <b-col v-for="(iten, index) in professionalSelected" :key="index">
+                <b-card
+                    v-if="seeCard === true"
+                    :title="iten.nome"
+                >
+                    <b-card-text> CRM:{{iten.documento_conselho}}</b-card-text> <br/><br/>
+                    <b-button href="#" variant="primary">Agendar</b-button>
+                </b-card>
+
+            </b-col>
+        </b-row>
     </div>
 </template>
 
@@ -25,6 +37,9 @@ export default {
             mode: 'save',
             specialist: {},
             specialties: [],
+            seeCard: false,
+            seeSelect: false,
+            seeForm: false,
             professionalSelected: [],
             professionals: []
           
@@ -38,6 +53,7 @@ export default {
                 return { ...specialist, value: specialist.especialidade_id, text: specialist.nome }
                 })
             })
+            this.seeSelect = true;
         },
 
         loadProfessional() {
@@ -45,9 +61,10 @@ export default {
             axios.get(url).then(res => {
                  this.professionals = res.data.professional
             }).catch(showError)
-
-            this.professionalSelected = this.professionals.filter((item) => item.especialidade_id === this.specialist.especialidade_id);
-            
+    
+                this.professionalSelected = this.professionals
+                    .filter((item) => item.especialidade_id === this.specialist.especialidade_id);
+                if (this.professionalSelected.length > 0) {this.seeCard = true; this.seeSelect = false; }
         },
 
 
