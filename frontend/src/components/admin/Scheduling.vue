@@ -7,7 +7,7 @@
                     :options="specialties" v-model="specialist.especialidade_id"/>
             </b-form-group>
 
-            <b-button variant="primary" 
+            <b-button variant="success" 
                 @click="loadProfessional">Selecionar</b-button>
         </b-form>
         <b-row>
@@ -17,7 +17,7 @@
                     :title="iten.nome"
                 >
                     <b-card-text> CRM:{{iten.documento_conselho}}</b-card-text> <br/><br/>
-                    <b-button @click="loadSource" variant="primary">Agendar</b-button>
+                    <b-button @click="loadSource" variant="success">Agendar</b-button>
                 </b-card>
             </b-col>
         </b-row>
@@ -52,6 +52,13 @@
                    <b-form-select id="specialties-id"
                     :options="sources" v-model="source.especialidade_id"/>
                     </b-form-group>
+                </b-col>
+            </b-row>
+            <b-row>
+                <b-col xs="12">
+                    <b-button variant="success" 
+                        @click="save">SOLICITAR HORÁRIOS</b-button>
+                    
                 </b-col>
             </b-row>
         </b-form>
