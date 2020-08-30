@@ -25,7 +25,7 @@ export default {
             mode: 'save',
             specialist: {},
             specialties: [],
-            professional: {},
+            professionalSelected: [],
             professionals: []
           
         }
@@ -46,7 +46,8 @@ export default {
                  this.professionals = res.data.professional
             }).catch(showError)
 
-
+            this.professionalSelected = this.professionals.filter((item) => item.especialidade_id === this.specialist.especialidade_id);
+            
         },
 
 
