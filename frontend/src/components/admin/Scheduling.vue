@@ -137,7 +137,6 @@ export default {
                     this.$toasted.global.defaultSuccess()
                     this.reset()
                 })
-                .catch(showError)
 
             this.seeCard = false;
             this.seeForm = false;
