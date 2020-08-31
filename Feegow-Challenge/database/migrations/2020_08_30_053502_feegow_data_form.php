@@ -21,6 +21,8 @@ class FeegowDataForm extends Migration
             $table->bigInteger('cpf');
             $table->integer('source_id');
             $table->date('birthdate');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

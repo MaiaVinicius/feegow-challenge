@@ -10,17 +10,14 @@
             <b-button variant="success" 
                 @click="loadProfessional">Selecionar</b-button>
         </b-form>
-        <b-row>
-            <b-col v-for="(iten, index) in professionalSelected" :key="index">
-                <b-card
-                    v-if="seeCard === true"
-                    :title="iten.nome"
-                >
-                    <b-card-text> CRM:{{iten.documento_conselho}}</b-card-text> <br/><br/>
-                    <b-button @click="loadSource" variant="success">Agendar</b-button>
-                </b-card>
-            </b-col>
-        </b-row>
+        <b-table hover striped :items="professionalSelected" id="professional-id" v-model="professional.id" :fields="fields" v-if="seeCard === true">
+            <template slot="actions" id="professional-id"  slot-scope="data">
+                <b-button variant="success"  @click="loadSource(data.item)" v-model="professional.id" class="mr-2">
+                    AGENDAR
+                </b-button>
+
+            </template>
+        </b-table>
 
         <b-form v-if="seeForm === true">
             <b-row>
@@ -49,7 +46,7 @@
                 <b-col md="6" sm="12">
                     <b-form-group label="Como Conheceu:">
                    <b-form-select id="source-id"
-                    :options="sources" v-model="source.especialidade_id"/>
+                    :options="sources" v-model="source.origem_id"/>
                     </b-form-group>
                 </b-col>
             </b-row>
@@ -85,8 +82,13 @@ export default {
             seeSelect: false,
             seeForm: false,
             professionalSelected: [],
-            professionals: []
-          
+            professionals: [],
+            professional:{},
+            fields: [
+                { key: 'nome', label: 'Nome', sortable: true },
+                { key: 'documento_conselho', label: 'CRM', sortable: true },
+                { key: 'actions', label: 'Ações' }
+            ]
         }
     },
     methods: {
@@ -109,9 +111,11 @@ export default {
                 this.professionalSelected = this.professionals
                     .filter((item) => item.especialidade_id === this.specialist.especialidade_id);
                 if (this.professionalSelected.length > 0) {this.seeCard = true; this.seeSelect = false; }
+               
         },
 
-        loadSource() {
+        loadSource(item) {
+            
             const url = `${baseApiUrl}/api/sources`
             axios.get(url).then(res => {
           this.sources = res.data.sources.map(source => {
@@ -120,17 +124,26 @@ export default {
             })
             this.seeCard = false;
             this.seeForm = true;
+            this.professional = item
         },
 
         save() {
-            const method = this.article.id ? 'put' : 'post'
-            const id = this.article.id ? `/${this.article.id}` : ''
-            axios[method](`${baseApiUrl}/articles${id}`, this.article)
+            this.formData.specialty_id = this.specialist.especialidade_id
+            this.formData.professional_id = this.professional.profissional_id
+            this.formData.source_id = this.source.origem_id
+            
+            axios.post(`${baseApiUrl}/api/store`, this.formData)
                 .then(() => {
                     this.$toasted.global.defaultSuccess()
                     this.reset()
                 })
                 .catch(showError)
+
+            this.seeCard = false;
+            this.seeForm = false;
+            this.seeSelect = true;
+
+            this.formData = {};
         },
 
     },
