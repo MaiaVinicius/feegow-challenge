@@ -136,14 +136,20 @@ export default {
                 .then(() => {
                     this.$toasted.global.defaultSuccess()
                     this.reset()
-                })
+               })
 
+            this.clear()        
+        },
+
+        clear() {
             this.seeCard = false;
             this.seeForm = false;
             this.seeSelect = true;
 
             this.formData = {};
-        },
+            this.specialist = {};
+            this.professional = {};
+        }
 
     },
 
