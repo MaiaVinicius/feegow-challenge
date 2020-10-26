@@ -9,7 +9,7 @@ body {
     margin: 0 auto !important;
 }
 
-@media (max-width: 64em) {
+@media (max-width: 70em) {
     .content, .container {
         width: 90% !important;
         margin: 0 auto !important;
@@ -120,7 +120,7 @@ body {
 
     .main_header_nav_menu_modile {
         display: block;
-        font-size: 1.4em;
+        font-size: 1.6em;
         cursor: pointer;
         padding: 5px 10px;
         color: #0f9eb6;
@@ -265,8 +265,7 @@ body {
 
 @media (max-width: 32em) {
     .main_background {
-        padding-bottom: 40px;
-        background: #F7F7F7;
+        min-height: 350px;
     }
 
     .main_background_image img {
@@ -386,35 +385,59 @@ body {
     text-align: center;
 }
 
+@media (max-width: 70em) {
+    .app_about_content{
+        flex-direction: column-reverse;
+        margin-top: 40px;
+    }
+
+    .app_about_itens_item{
+        margin: 20px;
+        padding: 30px;
+    }
+
+    .app_about_itens{
+        margin: 0;
+    }
+}
+
 @media (max-width: 48em) {
     .app_about {
-        padding: 96px 0 36px 0;
+        padding: 40px 0 36px 0;
     }
 
-    .app_about_img {
-        display: none;
+    .app_about h2 {
+        font-size: 1.6em;
     }
 
-    .app_about_itens {
-        display: flex;
-        justify-content: center;
-        flex-basis: 100%;
-        margin-left: 0;
+    .app_about p {
+        font-size: 1em;
     }
+}
 
+@media (max-width: 40em) {
     .app_about_itens_item {
-        flex-basis: calc(100% - 40px);
-        margin-left: 0;
-        margin-bottom: 60px;
-        padding: 0;
+        flex-basis: 100%;
+        margin: 0 0 40px;
+        padding: 30px;
     }
 
     .app_about_itens_item img {
-        width: 40%;
+        width: 25%;
+        margin-bottom: 15px;
+    }
+
+    .app_about_itens_item h3 {
+        font-size: 1em;
+        margin-bottom: 15px;
     }
 
     .app_about_itens_item p {
-        font-size: 0.8em;
+        font-size: 0.75em;
+    }
+
+    .app_about_img {
+        padding: 20px 10px 30px;
     }
 }
 
@@ -509,32 +532,88 @@ body {
     color: #f7f7f7;
 }
 
-@media (max-width: 48em) {
+@media (max-width: 70em) {
     .app_cta {
-        padding: 96px 0 36px 0;
+        padding: 64px 0;
     }
 
-    .app_cta_img {
-        display: none;
+    .app_cta h2 {
+        font-size: 2.6em;
+    }
+
+    .app_cta p {
+        font-size: 1.8em;
+    }
+
+    .app_cta_content {
+        flex-direction: column;
+        margin-top: 40px;
     }
 
     .app_cta_box {
-        display: flex;
-        justify-content: center;
+        flex-direction: column;
         flex-basis: 100%;
-        margin-left: 0;
+        margin: 40px 0;
+        padding: 0 60px;
     }
 
     .app_cta_box h3 {
-        font-size: 0.8em;
+        font-size: 1.6em;
+        text-align: center;
     }
 
     .app_cta_box p {
-        font-size: 0.8em;
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .app_cta_box a {
+        width: 60%;
+        text-align: center;
     }
 }
 
-/******* ABOUT ******/
+@media (max-width: 48em) {
+    .app_cta h2 {
+        font-size: 2.2em;
+    }
+
+    .app_cta p {
+        font-size: 1.4em;
+    }
+
+    .app_cta_box {
+        flex-direction: column;
+        flex-basis: 100%;
+        margin: 15px 0 60px;
+        padding: 0;
+    }
+
+    .app_cta_box h3 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    .app_cta_box p {
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .app_cta_img {
+        flex-basis: 100%;
+    }
+
+    .app_cta_img img {
+        width: 90%;
+    }
+
+    .app_cta_box a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/******* SCHEDULE ******/
 .app_schedule {
     background-color: #ffffff;
     padding: 80px 0 96px;
@@ -818,97 +897,118 @@ body {
     background: linear-gradient(90deg, rgba(15, 158, 182, 1) 0%, rgba(17, 183, 211, 1) 100%);
 }
 
-@media (max-width: 48em) {
-    .app_about {
-        padding: 96px 0 36px 0;
-    }
-
-    .app_about_img {
-        display: none;
-    }
-
-    .app_about_itens {
-        display: flex;
-        justify-content: center;
-        flex-basis: 100%;
-        margin-left: 0;
-    }
-
-    .app_about_itens_item {
-        flex-basis: calc(100% - 40px);
-        margin-left: 0;
-        margin-bottom: 60px;
+@media (max-width: 75em) {
+    .app_schedule p {
         padding: 0;
     }
 
-    .app_about_itens_item img {
-        width: 40%;
+    .app_schedule_content {
+        margin-top: 40px;
     }
 
-    .app_about_itens_item p {
-        font-size: 0.8em;
+    .app_schedule_specialty {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .app_schedule_specialty_label {
+        flex-basis: 100%;
+        margin-bottom: 15px;
+    }
+
+    .app_schedule_specialty_label span {
+        font-size: 1.4em;
+    }
+
+    .app_schedule_specialty_select {
+        flex-basis: 100%;
     }
 }
 
+@media (max-width: 70em) {
+    .app_schedule {
+        padding: 64px 0;
+    }
 
-/******* 404 ******/
-.error {
-    background: #f7f7f7;
-    padding: 96px 0;
-}
+    .app_schedule h2 {
+        font-size: 2.6em;
+    }
 
-.error_content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+    .app_schedule p {
+        font-size: 1.2em;
+        padding: 0;
+    }
 
-.error_content h2 {
-    font-size: 12em;
-    color: #0f9eb6;
-    margin-top: 96px;
-}
-
-.error_content h2 span {
-    color: #082C3E;
-}
-
-.error_content p {
-    font-size: 1.2em;
-    color: #6B6767;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.error_content a {
-    background: rgb(19, 68, 91);
-    background: linear-gradient(90deg, rgba(19, 68, 91, 1) 0%, rgba(8, 43, 60, 1) 100%);
-    color: #fff;
-    font-size: 1.1em;
-    font-weight: 600;
-    margin-top: 30px;
-    padding: 12px 36px;
-    margin-left: -5px;
-    border-radius: 30px;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.error_content a:hover {
-    background: rgb(8, 43, 60);
-    background: linear-gradient(90deg, rgba(8, 43, 60, 1) 0%, rgba(19, 68, 91, 1) 100%);
-    color: #fff;
+    .app_schedule_box {
+        flex-basis: calc(50% - 40px);
+        margin: 20px
+    }
 }
 
 @media (max-width: 48em) {
-    .error_content h2 {
-        font-size: 10em;
+    .app_schedule h2 {
+        font-size: 1.8em;
     }
 
-    .error_content p {
+    .app_schedule p {
         font-size: 1em;
+    }
+
+    .app_cta_box {
+        flex-direction: column;
+        flex-basis: 100%;
+        margin: 15px 0 60px;
+        padding: 0;
+    }
+
+    .app_cta_box h3 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    .app_cta_box p {
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .app_cta_img {
+        flex-basis: 100%;
+    }
+
+    .app_cta_img img {
+        width: 90%;
+    }
+
+    .app_cta_box a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .app_schedule_box {
+        flex-basis: 100%;
+        margin: 20px 0;
+    }
+
+    .app_schedule_data_input {
+        flex-basis: calc(100% - 20px);
+        margin: 0 10px 20px;
+    }
+
+    .app_schedule_data_button {
+        flex-direction: column-reverse;
+    }
+
+    .app_schedule_data_button .btn_cancel{
+        width: 100%;
+    }
+
+    .app_schedule_data_button .btn_schedule {
+        width: 100%;
+        font-size: 0.875em;
+        margin-bottom: 15px;
     }
 }
 
@@ -1126,6 +1226,7 @@ body {
     }
 }
 
+/******* BOX AJAX ******/
 .container_sended {
     display: flex;
     flex-direction: column;

@@ -121,7 +121,6 @@ $(function () {
     $('.j_container_sended_close').click(function () {
         $('.j_container_sended').fadeOut(200);
         $('#container_specialty').fadeIn(400, function () {
-            $(this).trigger('reset');
             location.reload();
         });
         return false;
