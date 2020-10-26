@@ -6,7 +6,9 @@
 
 ## Instalação do Projeto
 1- Existe um arquivo de banco de dados que se encontra na pasta "database" já pronto para ser instalado,
+
 2- Subir o projeto para algum servidor Apache como "Xampp" e configurar a URL BASE em "_app/Config/Config.inc.php",
+
 3- Os arquivos desenvolvidos para o teste se encontram na pasta "themes/feegow/index.php", "themes/feegow/js/scripts.js" e "themes/feegow/_ajax/feegow.ajax.php"
 
 
