@@ -1,3 +1,15 @@
+# Overview do Projeto
+1- O projeto é um "mini clone" do site da Feegow, foram adicionada as funcionalidades propostas no desafio. O resultado final está disponível para visualização em https://www.gbtechweb.com.br/feegow
+
+2- O projeto foi desevolvido sem uso de frameworks PHP e nem CSS, foi totalmente desenvolvido em PHP, HTML, CSS e jQuery com Ajax.  
+
+
+## Instalação do Projeto
+1- Existe um arquivo de banco de dados que se encontra na pasta "database" já pronto para ser instalado,
+2- Subir o projeto para algum servidor Apache como "Xampp" e configurar a URL BASE em "_app/Config/Config.inc.php",
+3- Os arquivos desenvolvidos para o teste se encontram na pasta "themes/feegow/index.php", "themes/feegow/js/scripts.js" e "themes/feegow/_ajax/feegow.ajax.php"
+
+
 # Feegow Challenge
 
 Esse é um teste focado em design de código, e conhecimento de orientação a objeto. O objetivo é avaliar sua experiênica em escrever código de fácil manutenção, baixo acoplamento, e alta coesão.
