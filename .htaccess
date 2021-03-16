@@ -1,0 +1,25 @@
+# Habilita o Módulo de Reescrever URL
+RewriteEngine On
+Options All -Indexes
+
+# 1) Apenas Para Quem Tem Mais de 1 Domínio
+#RewriteOptions inherit
+#RewriteCond %{HTTP_HOST} ^segundodominio\.com\.br$ [OR]
+#RewriteCond %{HTTP_HOST} ^www\.segundodominio\.com\.br$
+#RewriteRule ^/?$ "https\:\/\/www\.principaldominio\.com\.br\/" [R=301,L]
+
+# 2) WC FORÇAR PARA SER HTTPS
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 3) WC FORÇAR PARA TER WWW
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 4) REESCREVE URL PARA NÃO EXIBIR ARQUIVOS.PHP
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1
+
+
